@@ -1,5 +1,4 @@
 <!--index.wxml-->
-<view bindtouchstart="touchStart" bindtouchend="touchEnd">
 <view class="cu-bar search ">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
@@ -20,5 +19,4 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-</view>
 </view>
