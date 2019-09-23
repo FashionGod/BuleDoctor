@@ -1,6 +1,7 @@
 /**index.wxss**/
 page{
-  background: linear-gradient(#b4e0fa,#4bc7f8);
+  background:white;
+  /* background: linear-gradient(#b4e0fa,#4bc7f8); */
 }
 .userinfo {
   display: flex;
@@ -31,3 +32,27 @@ page{
   margin-top: 20rpx; 
 }
 
+.butotn-group{
+  width: 100%;
+  height: auto;
+}
+
+.action{
+  height: auto;
+}
+
+.buttonLayout{
+  display: flex;
+}
+
+.registration{
+  width: 49%;
+  height: 300rpx;
+  border: none;
+}
+
+.checkUp{
+  width: 49%;
+  height: 300rpx;
+  border: none;
+}

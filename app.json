@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/registration/registration",
     "pages/home/home",
     "pages/ask/ask",
     "pages/order/order",
     "pages/me/me"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +42,8 @@
         "iconPath": "/images/me.png",
         "selectedIconPath": "/images/me_selected.png",
         "text": "我的"
-      }]
-      },
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }

@@ -41,6 +41,14 @@ Page({
       })
     }
   },
+  registration(){
+    wx.navigateTo({
+      url: '../registration/registration',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   onShow:function(){
   
   },
