@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/home/registration/registration",
     "pages/home/home",
+    "pages/home/registration/registration",
     "pages/ask/ask",
     "pages/order/order",
-    "pages/me/me"
-   
+    "pages/me/me",
+    "pages/home/pickSelf/pickSelf"
   ],
   "window": {
     "backgroundTextStyle": "light",

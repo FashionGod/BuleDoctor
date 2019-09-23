@@ -17,7 +17,7 @@
     <button class="registration" bindtap="registration">
     快速挂号
     </button>
-    <button class="checkUp">
+    <button class="checkUp" bindtap="toPickSelf"> 
     自选体检项目
     </button>
 </view>

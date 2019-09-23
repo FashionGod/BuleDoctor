@@ -43,10 +43,15 @@ Page({
   },
   registration(){
     wx.navigateTo({
-      url: '../registration/registration',
+      url: '../home/registration/registration',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+  toPickSelf(){
+    wx.navigateTo({
+      url: '../home/pickSelf/pickSelf',
     })
   },
   onShow:function(){
