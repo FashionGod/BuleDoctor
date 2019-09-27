@@ -10,6 +10,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+    currentIndex:0,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -41,7 +42,7 @@ Page({
       })
     }
   },
-  registration(){
+  ToRegistration(){
     wx.navigateTo({
       url: '../home/registration/registration',
       success: function(res) {},
@@ -64,5 +65,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  handleChange:function(e){
+    this.setData({
+      currentIndex:e.detail.current
+    })
   }
+  
 })

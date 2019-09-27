@@ -12,12 +12,22 @@
       <button class="cu-btn bg-cyan.light shadow-blur round">搜索</button>
     </view>
 </view>
-
+<swiper class="swiper" indicator-dots="true" autoplay="true" circular="true" previous-margin="80rpx" next-margin="80rpx" bindchange="handleChange">
+      <swiper-item wx:for="{{4}}" wx:key="{{index}}" bindtap="onViewHot" data-index="{{index}}">
+        <view class="slide-image {{currentIndex == index ? 'active': ''}}">
+          <view class="title">{{item.title}}</view>
+          <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode="aspectFill" />
+        </view>
+      </swiper-item>
+    </swiper>
 <view class="buttonLayout">
-    <button class="registration" bindtap="registration">
-    快速挂号
-    </button>
-    <button class="checkUp" bindtap="toPickSelf"> 
-    自选体检项目
-    </button>
+    <view class="FunctionButton"  >
+    <image bindtap="ToRegistration" class="FunctionImageStyle" mode="aspectFit" src="../../images/home_register_button.png" plain="true"></image>
+    <text  class="FunctionText">快速挂号</text>
+    </view>
+
+    <view class="FunctionButton"  > 
+    <image bindtap="toPickSelf" class="FunctionImageStyle" mode="aspectFit" src="../../images/home_test_button.png" plain="true"></image>
+    <text  class="FunctionText">自选体检项目</text>
+    </view>
 </view>
