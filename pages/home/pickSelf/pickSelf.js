@@ -8,7 +8,14 @@ Page({
     MainCur: 0,
     VerticalNavTop: 0,
     list: [],
-    load: true
+    load: true,
+    flag0:true
+  },
+  focus0()
+  {
+    this.setData({
+      flag0:false
+    })
   },
   onLoad() {
     wx.showLoading({

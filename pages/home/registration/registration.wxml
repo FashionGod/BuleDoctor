@@ -1,2 +1,25 @@
-<!--pages/registration.wxml-->
-<text>pages/registration.wxml</text>
+<view class="cu-bar search " >
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索症状/疾病/药品/医生/科室" confirm-type="search" bindfocus="getfocus" bindinput="inputsearch" bindconfirm="endsearchList" bindblur="blursearch" value='{{searchstr}}'></input>
+       <icon class="clear_top" bindtap='activity_clear' wx:if="{{searchflag}}" type='clear' size="28rpx"></icon>
+    </view>
+
+   
+
+    <view class="action">
+      <button bindtap="buttonSearch" class="cu-btn bg-cyan.light shadow-blur round">搜索</button>
+    </view>
+</view>
+<scroll-view class="searchResult" wx:for="{{itemList}}" wx:key="index" wx:if="{{searchflag}}">
+
+  <!-- <view class="search_no" wx:if="{{searchflag}}">
+    <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>
+  </view> -->
+
+  <view class="item" bindtap="itemDetail">
+    {{itemList[index]}}
+  </view>
+  
+  <view class="arrow"></view>
+</scroll-view>

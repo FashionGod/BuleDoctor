@@ -1,11 +1,15 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/home/registration/registration",
+    "pages/home/home",
+    
+    "pages/home/pickSelf/pickSelf",
+   
+    
     "pages/ask/ask",
     "pages/order/order",
     "pages/me/me",
-    "pages/home/pickSelf/pickSelf"
+    "colorui/components/searchBox/searchBox"
   ],
   "window": {
     "backgroundTextStyle": "light",
