@@ -1,8 +1,9 @@
 /**index.wxss**/
-page{
-  /* background:white; */
-  /* background: linear-gradient(#b4e0fa,#4bc7f8); */
+
+page {
+  /* background:white; *//* background: linear-gradient(#b4e0fa,#4bc7f8); */
 }
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -24,50 +25,50 @@ page{
   margin-top: 200px;
 }
 
-.box {  
-  margin: 20rpx 0; 
+.box {
+  margin: 20rpx 0;
 }
 
 .box view.cu-bar {
-  margin-top: 20rpx; 
+  margin-top: 20rpx;
 }
 
-.butotn-group{
+.butotn-group {
   width: 100%;
   height: auto;
 }
 
-.action{
+.action {
   height: auto;
 }
 
-.buttonLayout{
+.buttonLayout {
   display: flex;
   margin-top: 30rpx;
 }
 
-.FunctionButton{
+.FunctionButton {
   width: 49%;
   height: 300rpx;
-  outline-color: white;
-  background: white;
+  outline-color: #f6f6f6;
+  background: #f6f6f6;
   display: flex;
   flex-direction: column;
 }
 
-.FunctionButton::after{
+.FunctionButton::after {
   border: none;
 }
 
-.FunctionImageStyle{
+.FunctionImageStyle {
   margin: 0px auto;
   display: flex;
   width: 150rpx;
   height: 150rpx;
-  border:none;
+  border: none;
 }
 
-.FunctionText{
+.FunctionText {
   font-size: 35rpx;
   color: rgba(170, 170, 170, 0.815);
   text-align: center;

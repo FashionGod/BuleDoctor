@@ -11,15 +11,17 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#b4e0fa",
-    "navigationBarTitleText": "智能就医辅助系统",
-    "navigationBarTextStyle": "black"
+    "backgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#4D9BF4",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#1bb189",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "backgroundColor": "#f1f1f1",
+
     "list": [
       {
         "pagePath": "pages/home/home",

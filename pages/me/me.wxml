@@ -1,2 +1,58 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<!--pages/me/me.wxml--> 
+<text>pages/me/me.wxml</text> 
+<view class="container"> 
+  <view vlass="remind-box" wx:if="{{false}}"> 
+    <image></image> 
+  </view> 
+  <block wx:else> 
+    <image class="title" src="../../images/title.png"></image> 
+    <view class="content"> 
+      <view class="hd" style="transform:rotateZ(0deg);"> 
+        <button wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 
+        <image class="logoImage" src="../../images/BlueDoctor.png"></image> 
+        </button> 
+        <image wx:else class="logo" src="{{userInfo.avatarUrl}}"></image> 
+        <!-- <image class="img wave" src="../../images/wave.png" mode="aspectFill"></image> 
+        <image class="img wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image> --> 
+      </view> 
+      <!-- <view class="hd" style="transform:rotateZ(0deg);"> 
+        <button wx:if="{{false}}">点击授权 
+        </button> 
+        <image class="logo" wx:else src="../../images/BlueDoctor.png" ></image> 
+       <image class="wave" src="../../images/wave.png" mode="aspectFill"></image> 
+        <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image> 
+      </view> --> 
+      <view class="lists"> 
+          <view bindtap="onClick" data-index="2" class="item"> 
+            <image src="../../images/buyRecord.png" mode="scaleToFill" /> 
+            <text>就诊记录</text> 
+            <view class="unRead" wx:if="{{unReadNum}}"> 
+              <text>{{unReadNum}}</text> 
+            </view> 
+            <text class="arrow"></text> 
+          </view> 
+          <view bindtap="onClick" data-index="3" class="item"> 
+            <image src="../../images/buyRecord.png" mode="scaleToFill" /> 
+            <text>消费记录</text> 
+            <text class="arrow"></text> 
+          </view> 
+          <view bindtap="onClick" data-index="4" class="item"> 
+            <image src="../../images/feedback.png" mode="scaleToFill" /> 
+            <text>反馈</text> 
+            <text class="arrow"></text> 
+          </view> 
+          <view wx:if="{{isAdmin}}" bindtap="onClick" data-index="5" class="item"> 
+            <image src="" mode="scaleToFill" /> 
+            <text>管理员</text> 
+            <text class="arrow"></text> 
+          </view> 
+          <view bindtap="onClick" data-index="6" class="item2"> 
+            <image src="../../images/information.png" mode="scaleToFill" /> 
+            <text>关于</text> 
+            <text class="arrow"></text> 
+          </view> 
+ 
+        </view> 
+    </view> 
+  </block> 
+</view>

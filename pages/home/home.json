@@ -1,6 +1,7 @@
 {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#b4e0fa",
+    "navigationBarBackgroundColor": "#4D9BF4",
+    "backgroundColor": "#F6F6F6",
     "navigationBarTitleText": "智能就医辅助系统",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
 }
