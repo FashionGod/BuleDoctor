@@ -1,0 +1,83 @@
+<view class="cu-bar search" >
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" 
+             placeholder="搜索症状/疾病/药品/医生/科室"          
+             confirm-type="search" 
+             bindfocus="getfocus" 
+             bindinput="inputsearch" 
+             bindconfirm="endsearchList" 
+             bindblur="blursearch" 
+             value='{{searchstr}}'>
+      </input>
+      <icon class="clear_top" 
+             bindtap='activity_clear' 
+             wx:if="{{!searchflag}}" 
+             type='clear' 
+             size="28rpx">
+      </icon>
+    </view>
+
+    <view class="action">
+      <button bindlongtap="buttonSearch" 
+              class="cu-btn bg-cyan.light shadow-blur round">搜索  
+      </button>
+    </view>
+</view>
+
+<view class="VerticalBox" 
+      wx:if="{{searchflag}}">
+  <scroll-view class="VerticalNav nav" 
+      scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" 
+      style="height:calc(100vh - 105rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" 
+          wx:for="{{list}}" 
+          wx:key bindtap='tabSelect' 
+          data-id="{{index}}">
+          {{item.name}}
+    </view>
+  </scroll-view>
+  
+  <scroll-view 
+  class="VerticalMain" 
+  scroll-y scroll-with-animation style="height:calc(100vh - 105rpx)"  
+  scroll-into-view="main-{{MainCur}}"
+  bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" 
+          wx:for="{{list}}" 
+          wx:key id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text> 
+          {{item.name}}
+        </view>
+      </view>
+
+      <view class="ListItem" 
+            wx:for="{{item.items}}" 
+            wx:for-item="subItem" 
+            wx:key>
+        <view class="itemItems" 
+              data-itemsId="{{index}}"
+              bindtap="ItemDetail">
+              {{subItem}}
+        </view>  
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- <scroll-view class="searchResult" wx:for="{{itemList}}" wx:key="index" wx:if="{{searchflag}}"> -->
+
+  <view class="search_no" 
+        wx:if="{{!searchflag}}">
+    <image class="search_Picture" 
+           src="../../../images/ktp.png"></image>
+    <text class="search_Text">暂未获取到挂号历史/(ㄒoㄒ)/~~</text>
+  </view>
+
+  <!-- <view class="item" bindtap="itemDetail">
+    {{itemList[index]}}
+  </view> -->
+  
+  <!-- <view class="arrow"></view> -->
+<!-- </scroll-view> -->

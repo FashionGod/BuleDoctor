@@ -44,7 +44,7 @@ Page({
   },
   ToRegistration(){
     wx.navigateTo({
-      url: '../home/registration/registration',
+      url: '../home/quickRegister/quickRegister?id=0',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

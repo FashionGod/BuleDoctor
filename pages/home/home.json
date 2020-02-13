@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#b4e0fa",
+    "navigationBarTitleText": "智能就医辅助系统",
+    "navigationBarTextStyle": "black"
 }

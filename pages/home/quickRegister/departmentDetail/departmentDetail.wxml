@@ -1,0 +1,17 @@
+<view class="top">
+  <view class="top_left">
+    2020-02-13
+  </view>
+  <view class="top_right">
+    <view class="followDate" 
+          style="{{color1}}"
+          bindtap="followDate">
+          按日期挂号
+    </view>
+    <view class="followDoctor" 
+          style="{{color2}}"
+          bindtap="followDoctor">
+          按医生挂号
+    </view>
+  </view>
+</view>

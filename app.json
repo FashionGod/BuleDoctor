@@ -1,11 +1,9 @@
-{
+ {
   "pages": [
-    
     "pages/home/home",
-    "pages/home/registration/registration",
+    "pages/home/quickRegister/departmentDetail/departmentDetail",
+    "pages/home/quickRegister/quickRegister",
     "pages/home/pickSelf/pickSelf",
-   
-    
     "pages/ask/ask",
     "pages/order/order",
     "pages/me/me",
