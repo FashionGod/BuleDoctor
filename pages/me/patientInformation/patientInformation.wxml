@@ -1,0 +1,47 @@
+<form class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit">
+  <picker bindchange="PickerChange"  value="{{index}}" range="{{picker}}">
+  <view class="cu-form-group cu-item">
+    <view class="title">类型</view>
+    <view class="title text-gray">
+    {{index?picker[index]:'成人'}}
+    </view>
+    <text class="cuIcon-triangledownfill lg text-black"></text>
+  </view>
+  </picker>
+  <view class="cu-form-group cu-item">
+    <view class="title">姓名</view>
+    <input name="name" selectable="true" disabled="{{flag}}" placeholder="请输入姓名" value="{{}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">手机号</view>
+    <input name="photo" selectable="true" disabled="{{flag}}" placeholder="请输入电话号码" value="{{}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">证件</view>
+    <input name="wechat" selectable="true" disabled="{{flag}}" placeholder="请输入二代身份证号码" value="{{}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+  <radio-group class="radioGroup">
+			<view class="title">就诊卡号</view>
+      <view class="radioStyle">
+      <view> 
+      <text class="text-gray">有就诊卡</text>
+			<radio class="" checked></radio>
+      </view>
+      <view>
+      <text class="text-gray">没有就诊卡</text>
+      <radio class=""></radio>
+      </view>
+      </view>
+	</radio-group>
+  </view>
+  <view class="cu-form-group cu-item">
+    <input name="email" selectable="true" disabled="{{flag}}" placeholder="请输入病例本上的条形码" value="{{imgdata.content[4].Value}}"></input>
+  </view>
+
+  <view class="top">
+    <button class="cu-btn lines-black button" bindtap="alter">编辑</button>
+    <button class="cu-btn lines-black button" form-type="submit">保存</button>
+  </view>
+
+</form>

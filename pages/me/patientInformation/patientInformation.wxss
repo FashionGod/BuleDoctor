@@ -1,0 +1,106 @@
+/* pages/me/patientInformation/patientInformation.wxss */
+page{
+  position: fixed;
+}
+
+.radioGroup{
+  display: flex;
+  flex-direction:row;
+}
+
+.radioStyle{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.top {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.button{
+  position: relative;
+  width: 300rpx;
+  justify-content: space-around;
+  margin: 10px 20rpx;
+}
+
+.backgound {
+  border-top-style: 4rpx solid;
+  border-style: 1rpx;
+  font-size: 60s0rpx;
+  width: 100%;
+  height: 500px;
+  background: white;
+  border-bottom: solid;
+}
+.company {
+  margin-left: 40px;
+  color: rgb(35, 72, 128);
+  font-size: 30px;
+  font-style: italic;
+  height: 100px;
+}
+.name {
+  margin-left: 40px;
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 30px;
+  font-weight: 400;
+}
+.job {
+  margin-left: 40px;
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 20px;
+}
+.address {
+  margin-left: 40px;
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 15px;
+}
+.photo {
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 15px;
+}
+.wechat {
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 15px;
+}
+.email{
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.textemail {
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 15px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+.text {
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  font-size: 15px;
+  margin-left: 40px;
+}

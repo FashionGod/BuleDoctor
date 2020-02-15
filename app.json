@@ -8,8 +8,12 @@
     "pages/order/order",
     "pages/me/me",
     "colorui/components/searchBox/searchBox",
-    "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
-    "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister"
+    "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime","pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
+    "pages/me/patientInformation/patientInformation",
+    "pages/me/registrationRecord/registrationRecord",
+    "pages/me/physicalExaminationRecord/physicalExaminationRecord",
+    "pages/me/feedBack/feedBack",
+    "pages/me/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
