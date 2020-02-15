@@ -1,4 +1,4 @@
- {
+{
   "pages": [
     "pages/home/home",
     "pages/home/quickRegister/departmentDetail/departmentDetail",
@@ -7,7 +7,9 @@
     "pages/ask/ask",
     "pages/order/order",
     "pages/me/me",
-    "colorui/components/searchBox/searchBox"
+    "colorui/components/searchBox/searchBox",
+    "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
+    "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,7 +23,6 @@
     "selectedColor": "#1bb189",
     "borderStyle": "white",
     "backgroundColor": "#f1f1f1",
-
     "list": [
       {
         "pagePath": "pages/home/home",

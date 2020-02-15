@@ -1,0 +1,8 @@
+<!-- 背景 -->
+<view class="background">
+  <!-- 就诊科室 -->
+  <view class="department">
+    <view class=""></view>
+    <view class=""></view>
+  </view>
+</view>

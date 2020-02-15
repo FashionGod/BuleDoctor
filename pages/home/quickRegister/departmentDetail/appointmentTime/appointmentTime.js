@@ -1,20 +1,25 @@
-// pages/home/departmentDetail.js
+// pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [],
-    date: "",
-    // color1: "rgb(108, 199, 143)",
-    // color2: "white",
-    top: 4,
-    triangleFlag: true,
-    triangleColor1: "gray",
-    triangleColor2: "transparent",
-    num: 0,
-    id: 0,
+    top: -2,
+    triangleFlag: false,
+    triangleColor1: "transparent",
+    triangleColor2: "gray",
+    num: 0,//绿色圆圈选中的位置
+    num2: 0,//判断今天有没有号
+    weekDate: [
+      { "id": 0, "date": '' },
+      { "id": 1, "date": '' },
+      { "id": 2, "date": '' },
+      { "id": 3, "date": '' },
+      { "id": 4, "date": '' },
+      { "id": 5, "date": '' },
+      { "id": 6, "date": '' },
+    ],
     registerListTemp: [
       { "day": "上午", "time": "07:30", "price": "￥8.00", "state": "已无号" },
       { "day": "上午", "time": "07:36", "price": "￥8.00", "state": "已无号" },
@@ -86,30 +91,40 @@ Page({
       { "day": "下午", "time": "16:00", "price": "￥8.00", "state": "已无号" },
     ],
     registerList: [],
+    // searchflag: true,//显示图片
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取当前日期
+    console.log(options.id)
+     //获取当前日期
+    this.data.registerList = [];
     let dateTemp = new Date();
+    if (options.id != 0) {
+      this.data.registerList = this.data.registerListTemp;
+      this.data.searchflag = false;
+    }else {
+      // 列表项
+      for (let item of this.data.registerListTemp) {
+        if (item.time > dateTemp.toTimeString()) {
+          this.data.registerList.push(item);
+        }
+      }
+      if (this.data.registerList.length == 0) {
+        this.data.num2 = 1;
+      }else {
+        this.data.num2 = 0;
+      }
+    }
     //设置周
     let weekTemp = ["日", "一", "二", "三", "四", "五", "六"]
+    let countNumber = 0;
     var week = [];
-    var weekDate = [
-      { "id": 0, "date": '' },
-      { "id": 1, "date": '' },
-      { "id": 2, "date": '' },
-      { "id": 3, "date": '' },
-      { "id": 4, "date": '' },
-      { "id": 5, "date": '' },
-      { "id": 6, "date": '' },
-    ]
     for (let i = dateTemp.getDay(), j = 0, k = dateTemp.getDate(); i < 7; i++ , j++ , k++) {
-
       if (j == 7) {
-        weekDate[j - 1].date = k - 1;
+        this.data.weekDate[j-1].date = k-1;
         break;
       } else if (i == 6) {
         week.push(weekTemp[i]);
@@ -117,65 +132,46 @@ Page({
       } else {
         week.push(weekTemp[i]);
       }
-      weekDate[j].date = k;
-      if (((dateTemp.getFullYear() % 4 == 0 &&
-        dateTemp.getFullYear() % 100 != 0) ||
-        dateTemp.getFullYear() % 400 == 0) &&
-        dateTemp.getMonth() == 1 &&
+      this.data.weekDate[j].date = k;
+      if (((dateTemp.getFullYear() % 4 == 0 && 
+        dateTemp.getFullYear() % 100 != 0) || 
+        dateTemp.getFullYear() % 400 == 0) && 
+        dateTemp.getMonth() == 1 && 
         k == 29
-      ) {
-        k = 0;
+        ) {
+          console.log(1)
+          k = 0;
       } else if (((dateTemp.getFullYear() % 4 != 0 ||
-        dateTemp.getFullYear() % 100 == 0) &&
-        dateTemp.getFullYear() % 400 != 0) &&
-        dateTemp.getMonth() == 1 &&
-        k == 28) {
-        k = 0;
+                   dateTemp.getFullYear() % 100 == 0) &&
+                   dateTemp.getFullYear() % 400 != 0) && 
+                   dateTemp.getMonth() == 1 &&
+                   k == 28) {
+        console.log(11)
+          k = 0;        
       } else if (dateTemp.getMonth() % 2 == 0 &&
-        k == 31) {
-        k = 0;
+                 k== 31) {
+        console.log(111)
+          k = 0;            
       } else if (dateTemp.getMonth() % 2 == 1 &&
-        k == 30) {
-        k = 0;
+                 k == 30) {
+        console.log(1111)
+          k = 0;  
       }
     }
-    //判断有号无号
-    for (let item of this.data.registerListTemp) {
-      if (item.time > dateTemp.toTimeString()) {
-        this.data.registerList.push(item);
-      }
-      // 无号
-      if (this.data.registerList.length == 0) {
-        this.data.num = 1;
-      }else {//有号
-        this.data.num = 0;
-      }
-    }
+    //获取当天的号源
+    dateTemp.getHours()
+    //渲染值
     this.setData({
-      date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" + (dateTemp.getDate() + parseInt(this.data.num)),
-      departmentName: options.departmentName,
+      date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" + (dateTemp.getDate() + parseInt(options.id)),
       week: week,
-      weekDate: weekDate,
-      num: this.data.num,
+      weekDate: this.data.weekDate,
+      departmentName: options.departmentName,
+      registerList: this.data.registerList,
+      num: parseInt(options.id),
+      num2: this.data.num2,
     })
-    wx.setNavigationBarTitle({// 设置上标题栏
-      title: options.departmentName,
-    })  
   },
-  // followDate() {
-  //   console.log(1)
-  //   this.setData({
-  //     color1: "rgb(108, 199, 143)",
-  //     color2: "white"
-  //   })
-  // },
-  // followDoctor() {
-  //   console.log(2)
-  //   this.setData({
-  //     color1: "white",
-  //     color2: "rgb(108, 199, 143)"
-  //   })
-  // },
+  // 点击更多日期或者旁边的圆圈
   onTriangle() {
     if (this.data.triangleFlag == true) {
       this.setData({
@@ -193,38 +189,64 @@ Page({
       })
     }
   },
+  // 点击日期圆圈
   onCircleRegister(e) {
+    this.data.registerList = [];
     wx.showToast({
       title: '加载中',
       icon: 'loading',
       mask: true,
     })
     let dateTemp = new Date();
-    console.log(this.data.departmentName);
-    this.setData({
-      num: e.currentTarget.dataset.circleregister,
-      date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" +  
-        (dateTemp.getDate() + e.currentTarget.dataset.circleregister),
-      id: e.currentTarget.dataset.circleregister,
-    })
-    wx.navigateTo({
-      url: 'appointmentTime/appointmentTime?departmentName=' + this.data.departmentName + '&id=' + this.data.id,
-    })
+    if (e.currentTarget.dataset.circleregister != 0 ) {
+      // this.data.searchflag = false;
+      this.setData({
+        num: e.currentTarget.dataset.circleregister,
+        date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" +
+          (dateTemp.getDate() + e.currentTarget.dataset.circleregister),
+        registerList: this.data.registerListTemp,  
+        // searchflag: this.data.searchflag,
+      })
+    }else {
+      for (let item of this.data.registerListTemp) {
+        if (item.time > dateTemp.toTimeString()) {
+          this.data.registerList.push(item);
+        }
+        if (this.data.registerList.length == 0) {
+          // this.data.searchflag = true;
+        }else {
+          // this.data.searchflag = false;
+        }
+
+      }
+      this.setData({
+        num: e.currentTarget.dataset.circleregister,
+        date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" +
+          (dateTemp.getDate() + e.currentTarget.dataset.circleregister),
+        registerList: this.data.registerList,
+        // searchflag: this.data.searchflag,
+      })
+    }
     wx.hideToast();
+  },
+  // 列表被点击时
+  onListItem(e) {
+    wx.navigateTo({
+      url: 'confirmRegister/confirmRegister?id=' + e.currentTarget.dataset.id,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // let date = new date();
-    // console.log(this.data)
+
   },
 
   /**

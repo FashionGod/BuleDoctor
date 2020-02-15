@@ -23,11 +23,9 @@ Page({
     flag0: true,
   },
   ItemDetail(e){
+    let departmentName = this.data.list[this.data.TabCur].items[e.currentTarget.dataset.itemsid];
     wx.navigateTo({
-      url: 'departmentDetail/departmentDetail?listid=' + this.data.TabCur + '&itemsid=' + e.currentTarget.dataset.itemsid ,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: 'departmentDetail/departmentDetail?departmentName='+departmentName,
     })
   },
   addhandle() {
@@ -44,7 +42,7 @@ Page({
     this.setData({
       searchflag: true,
     })
-    this.triggerEvent("cancelsearch");
+    // this.triggerEvent("cancelsearch");
 
   },
   //搜索框输入时触发

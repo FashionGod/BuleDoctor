@@ -1,0 +1,5 @@
+/* 背景 */
+.background {
+  height: 100%;
+  background-color: rgb(236, 247, 247);
+}
