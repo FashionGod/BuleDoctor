@@ -2,57 +2,57 @@
 <view class="background">
 <!-- 最上面的布局 -->
 <view class="top">
-  <!-- 上左布局 -->
-  <view class="top_left">
-    <!-- 时间 -->
-    <text>{{date}}</text>
-      <!-- 圆圈 -->
-      <view class="circle">
-        <!-- 三角形 -->
-        <view class="tiangle" 
-              style="top:{{top}}px;border-top: 5px solid {{triangleColor1}}; border-bottom: 5px solid {{triangleColor2}};" 
-              bindtap="onTriangle"></view>
-    </view> <!-- 圆圈结束 -->
-  </view> <!-- 上左布局结束 -->
+<!-- 上左布局 -->
+<view class="top_left">
+<!-- 时间 -->
+<text>{{date}}</text>
+<!-- 圆圈 -->
+<view class="circle">
+<!-- 三角形 -->
+<view class="tiangle" 
+style="top:{{top}}px;border-top: 5px solid {{triangleColor1}}; border-bottom: 5px solid {{triangleColor2}};" 
+bindtap="onTriangle"></view>
+</view> <!-- 圆圈结束 -->
+</view> <!-- 上左布局结束 -->
 
-  <!-- 上右布局 -->
-  <view class="top_right">
-    <!-- 按日期挂号 -->
-    <view class="followDate" 
-          bindtap="followDate">
-          按日期挂号
-    </view>
-    <!-- <view class="followDoctor" 
-          style="background-color:{{color2}};color:{{color1}}"
-          bindtap="followDoctor">
-          按医生挂号
-    </view> -->
-  </view><!-- 上右布局结束 -->
+<!-- 上右布局 -->
+<view class="top_right">
+<!-- 按日期挂号 -->
+<view class="followDate" 
+bindtap="followDate">
+按日期挂号
+</view>
+<!-- <view class="followDoctor" 
+style="background-color:{{color2}};color:{{color1}}"
+bindtap="followDoctor">
+按医生挂号
+</view> -->
+</view><!-- 上右布局结束 -->
 </view><!-- 最上面的布局结束 -->
 
 <!-- 星期布局 -->
 <view class="weekBody" wx:if="{{triangleFlag}}">
-    <!-- 星期几 -->
-    <view class="weekLeft">
-      <view class="week"
-          wx:for="{{week}}"
-          wx:key>
-          {{item}}</view>
-    </view><!-- 星期几结束 -->
-    <!-- 星期几的日期 -->
-    <view class="weekLeft">
-      <view class="weekDate"
-          wx:for="{{weekDate}}"
-          wx:key>
-          <!-- 挂号的圆圈 -->
-          <view class='style {{item.id==num?"circleRegister":""}} style {{item.id==0?"haveRegister2":""}}'
-                data-circleregister="{{index}}"
-                bindtap="onCircleRegister">
-                {{item.date}}
-                <view class='style {{item.id==0?"haveRegister":""}}'>有号</view>
-          </view><!-- 挂号的圆圈结束 -->
-      </view>
-    </view> <!-- 星期几的日期结束 -->
+<!-- 星期几 -->
+<view class="weekLeft">
+<view class="week"
+wx:for="{{week}}"
+wx:key>
+{{item}}</view>
+</view><!-- 星期几结束 -->
+<!-- 星期几的日期 -->
+<view class="weekLeft">
+<view class="weekDate"
+wx:for="{{weekDate}}"
+wx:key>
+<!-- 挂号的圆圈 -->
+<view class='style {{item.id==num?"circleRegister":""}} style {{item.id==num2?"haveRegister2":""}}'
+data-circleregister="{{index}}"
+bindtap="onCircleRegister">
+{{item.date}}
+<view class='style {{item.id==num2?"haveRegister":""}}'>有号</view>
+</view><!-- 挂号的圆圈结束 -->
+</view>
+</view> <!-- 星期几的日期结束 -->
 </view><!-- 星期布局结束 -->
 
 <!-- 医生布局 -->

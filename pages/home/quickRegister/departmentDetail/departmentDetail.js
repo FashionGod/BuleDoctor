@@ -2,8 +2,8 @@
 Page({
 
   /**
-   * 页面的初始数据
-   */
+  * 页面的初始数据
+  */
   data: {
     list: [],
     date: "",
@@ -13,7 +13,8 @@ Page({
     triangleFlag: true,
     triangleColor1: "gray",
     triangleColor2: "transparent",
-    num: 0,
+    num: 0,//绿色日期圆圈选中哪一个
+    num2: -1,//判断今天有无号
     id: 0,
     registerListTemp: [
       { "day": "上午", "time": "07:30", "price": "￥8.00", "state": "已无号" },
@@ -89,8 +90,8 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
-   */
+  * 生命周期函数--监听页面加载
+  */
   onLoad: function (options) {
     //获取当前日期
     let dateTemp = new Date();
@@ -147,8 +148,10 @@ Page({
       // 无号
       if (this.data.registerList.length == 0) {
         this.data.num = 1;
-      }else {//有号
+        this.data.num2 = 0;
+      } else {//有号
         this.data.num = 0;
+        this.data.num2 = -1;
       }
     }
     this.setData({
@@ -157,24 +160,25 @@ Page({
       week: week,
       weekDate: weekDate,
       num: this.data.num,
+      num2: this.data.num2,
     })
     wx.setNavigationBarTitle({// 设置上标题栏
       title: options.departmentName,
-    })  
+    })
   },
   // followDate() {
-  //   console.log(1)
-  //   this.setData({
-  //     color1: "rgb(108, 199, 143)",
-  //     color2: "white"
-  //   })
+  // console.log(1)
+  // this.setData({
+  // color1: "rgb(108, 199, 143)",
+  // color2: "white"
+  // })
   // },
   // followDoctor() {
-  //   console.log(2)
-  //   this.setData({
-  //     color1: "white",
-  //     color2: "rgb(108, 199, 143)"
-  //   })
+  // console.log(2)
+  // this.setData({
+  // color1: "white",
+  // color2: "rgb(108, 199, 143)"
+  // })
   // },
   onTriangle() {
     if (this.data.triangleFlag == true) {
@@ -203,7 +207,7 @@ Page({
     console.log(this.data.departmentName);
     this.setData({
       num: e.currentTarget.dataset.circleregister,
-      date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" +  
+      date: dateTemp.getFullYear() + "-" + (dateTemp.getMonth() + 1) + "-" +
         (dateTemp.getDate() + e.currentTarget.dataset.circleregister),
       id: e.currentTarget.dataset.circleregister,
     })
@@ -213,51 +217,51 @@ Page({
     wx.hideToast();
   },
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  * 生命周期函数--监听页面初次渲染完成
+  */
   onReady: function () {
-    
+
   },
 
   /**
-   * 生命周期函数--监听页面显示
-   */
+  * 生命周期函数--监听页面显示
+  */
   onShow: function () {
     // let date = new date();
     // console.log(this.data)
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
-   */
+  * 生命周期函数--监听页面隐藏
+  */
   onHide: function () {
 
   },
 
   /**
-   * 生命周期函数--监听页面卸载
-   */
+  * 生命周期函数--监听页面卸载
+  */
   onUnload: function () {
 
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
   onPullDownRefresh: function () {
 
   },
 
   /**
-   * 页面上拉触底事件的处理函数
-   */
+  * 页面上拉触底事件的处理函数
+  */
   onReachBottom: function () {
-
+    
   },
 
   /**
-   * 用户点击右上角分享
-   */
+  * 用户点击右上角分享
+  */
   onShareAppMessage: function () {
 
   }

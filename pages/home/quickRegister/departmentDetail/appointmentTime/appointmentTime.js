@@ -10,7 +10,7 @@ Page({
     triangleColor1: "transparent",
     triangleColor2: "gray",
     num: 0,//绿色圆圈选中的位置
-    num2: 0,//判断今天有没有号
+    num2: -1,//判断今天有没有号
     weekDate: [
       { "id": 0, "date": '' },
       { "id": 1, "date": '' },
@@ -113,9 +113,11 @@ Page({
         }
       }
       if (this.data.registerList.length == 0) {
-        this.data.num2 = 1;
-      }else {
+        this.data.num = 1;
         this.data.num2 = 0;
+      }else {
+        this.data.num = 0;
+        this.data.num2 = -1;
       }
     }
     //设置周
@@ -245,8 +247,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (e) {
+    
   },
 
   /**

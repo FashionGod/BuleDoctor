@@ -1,37 +1,28 @@
-// pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister.js
+// pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment.js
+var timer = require('../../../../../../../plugins/wxTimer.js'); 
+var wxTimer = new timer({
+  beginTime: "00:15:00"
+})
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-
+    wxTimerList: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
+    wxTimer.calibration()
+    wxTimer.start(this);
+    console.log()
+    console.log(wxTimer)
+    wxTimer.calibration()
   },
-  onConfirm() {
-    wx.showToast({
-      title: '锁号中',
-      icon: 'loading',
-      duration: 2000,
-    })
-    wx.hideToast();
 
-    wx.showToast({
-      title: '支付处理中',
-      icon: 'loading',
-      duration: 3000,
-    })
-    wx.hideToast();
-    wx.navigateTo({
-      url: 'payment/payment',
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -43,9 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // wx.navigateTo({
-    //   url: '../../appointmentTime/appointmentTime?idasd=1',
-    // })
+    wxTimer.calibration()
   },
 
   /**

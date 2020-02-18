@@ -1,117 +1,117 @@
 /* 背景 */
 .background {
-  height: 100%;
-  background-color: rgb(236, 247, 247);
+height: 100%;
+background-color: rgb(236, 247, 247);
 }
 /* 清楚浮动 */
 .clearfix::before,.clearfix::after {
-    content: "";
-    display: table;
+content: "";
+display: table;
 }
 .clearfix::after {
-    clear: both;
+clear: both;
 }
 /* 最上面的布局 */
 .top {
-  width: 100%;
-  height:30px;
-  line-height: 30px;
-  padding-left: 10rpx; 
-  background-color: white;
+width: 100%;
+height:30px;
+line-height: 30px;
+padding-left: 10rpx; 
+background-color: white;
 }
 /* 上左 */
 .top_left {
-  float: left;
+float: left;
 }
 /* 圆圈 */
 .circle {
-  position: relative;
-  float: right;
-  margin-left: 10rpx;
-  margin-top: 8px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid gray;
+position: relative;
+float: right;
+margin-left: 10rpx;
+margin-top: 8px;
+width: 14px;
+height: 14px;
+border-radius: 50%;
+border: 1px solid gray;
 }
 /* 三角形 */
 .tiangle {
-  position: absolute;
-  left: 1px;
-  text-align: center;
-  width: 0;
-  height: 0;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
+position: absolute;
+left: 1px;
+text-align: center;
+width: 0;
+height: 0;
+border-right: 5px solid transparent;
+border-left: 5px solid transparent;
 }
 /* 上右 */
 .top_right {
-  float: right;
-  margin-top: 3px;
-  margin-right: 10rpx;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  /* border: 1px solid rgb(108, 199, 143); */
-  border-radius: 3px
+float: right;
+margin-top: 3px;
+margin-right: 10rpx;
+height: 24px;
+line-height: 24px;
+text-align: center;
+/* border: 1px solid rgb(108, 199, 143); */
+border-radius: 3px
 }
 /* 按日期挂号 */
 .followDate {
-  float: left; 
-  width: 200rpx;
-  border-radius: 3px;
-  color: white;
-  background-color: rgb(52, 150, 90);
+float: left; 
+width: 200rpx;
+border-radius: 3px;
+color: white;
+background-color: rgb(52, 150, 90);
 }
 /* 按医生挂号 */
 /* .followDoctor {
-  float: left; 
-  width: 200rpx;
+float: left; 
+width: 200rpx;
 } */
 /* 星期布局(weekBody) */
 .weekBody {
-  background-color: white;
+background-color: white;
 }
 /* 左右布局 */
 .weekLeft {
-  display: flex;
-  flex-direction: row; 
+display: flex;
+flex-direction: row; 
 }
 /* 星期几的样式 */
 .week {
-  width: 108rpx;
-  padding: 5px 0;
-  font-weight: 500;
-  font-size: 16px;
-  text-align: center;
-  border-top: 0.6px solid gray;
-  border-bottom: 0.6px solid gray;
+width: 108rpx;
+padding: 5px 0;
+font-weight: 500;
+font-size: 16px;
+text-align: center;
+border-top: 0.6px solid gray;
+border-bottom: 0.6px solid gray;
 }
 /* 星期几对应日期的布局 */
 .weekDate {
-  font-size: 12px;
-  text-align: center;
-  width: 108rpx;
-  padding: 10px 0 15px;
+font-size: 12px;
+text-align: center;
+width: 108rpx;
+padding: 10px 0 15px;
 }
 /* 挂号圆圈 */
 .circleRegister {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgb(52, 150, 90); 
-  color: white;
-  padding: 5px;
-  margin: 0 auto;
-  margin-top: -5px;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: rgb(52, 150, 90); 
+color: white;
+padding: 5px;
+margin: 0 auto;
+margin-top: -5px;
 }
 /* 有号消失 */
 .haveRegister {
-  display: none;
+display: none;
 }
 /* 日期不可点击 */
 .haveRegister2 {
-  pointer-events: none;
-  padding: 10px 0 ;
-  color: gray;
+pointer-events: none;
+padding: 10px 0 ;
+color: gray;
 }

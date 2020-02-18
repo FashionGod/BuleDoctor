@@ -1,5 +1,103 @@
 /* 背景 */
 .background {
   height: 100%;
-  background-color: rgb(236, 247, 247);
+  background-color: rgb(242, 248, 248);
+}
+/* 就诊科室 */
+.clinicDepartmentBox {
+  border-bottom: 0.5px solid rgb(236, 236, 236);
+  background-color: white;
+}
+.clinicDepartment {
+  float: left;
+  margin-left: 10rpx;
+  padding: 10px 0;
+}
+.clinicDepartmentMain {
+  float: right;
+  margin-right: 10rpx;
+  padding: 10px 0;
+  color: rgb(152, 164, 193);
+}
+/* 清除浮动 */
+.clearfix::before,.clearfix::after {
+    content: "";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
+/* 就诊时段 */
+.seeTimeBox {
+  border-bottom: 0.5px solid rgb(236, 236, 236);
+  background-color: white;
+}
+.seeTime {
+  float: left;
+  margin-left: 10rpx;
+  padding: 17px 0;
+}
+.seeTimeMain {
+  float: right;
+  display: flex;
+  padding: 9px 0;
+  flex-direction: column;
+  color: rgb(255, 111, 15);
+}
+.seeTimeMainTop {
+  margin-right: 10rpx;
+}
+.seeTimeMainBottom {
+  padding-top: 2px;
+  margin-left: 92rpx;
+}
+/* 挂号金额 */
+.registeredAmountBox {
+  background-color: white;
+  margin-top: 15px;
+  border-top: 0.5px solid rgb(236, 236, 236);
+  border-bottom: 0.5px solid rgb(236, 236, 236);
+}
+.registeredAmount {
+  float: left;
+  padding: 10px 0;
+  margin-left: 10rpx;
+}
+.registeredAmountMain {
+  float: right;
+  padding: 10px 0;
+  margin-right: 10rpx;
+  color: rgb(255, 111, 15);
+}
+/* 就诊人信息 */
+.patientInformationBox {
+  margin-top: 15px;
+  background-color: white;
+}
+.patientInformationImg {
+  float: left;
+  width: 55px;
+  height: 72px;
+  margin-left: 10rpx;
+  padding: 10px 0;
+}
+.patientInformationTxtBox {
+  float: left;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.patientName {
+  padding-top: 2px;
+}
+.patientMedicalCardNumber {
+  padding-top: 3px;
+  color: rgb(152, 164, 193);
+}
+/* 确认预约按钮 */
+.confirmButton {
+  width: 90%;
+  margin: 20px auto ;
+  color: white;
+  background-color: rgb(42, 197, 102);
 }

@@ -1,5 +1,53 @@
 /* pages/me/patientInformation/patientInformation.wxss */
-page{
+
+.container{
+  margin: 5px 10rpx;
+  padding: 5px 10rpx;
+}
+
+text{
+  margin-left: 70rpx;
+  line-height: 30px;
+  font-size: 10px;
+  font-weight: 100;
+}
+
+input{
+  margin-left: 20rpx;
+  margin-bottom: 5px;
+}
+
+form{
+  width: 100%;
+  height: auto;
+}
+
+
+#picktext1{
+
+
+  margin-left: 20rpx;
+  font-size: 11px;
+}
+
+
+#picktext2{
+  display: inline-flex;
+  margin-left: 490rpx;
+}
+
+.box{
+  width: 90%;
+  height: 30px;
+  margin-left: 40rpx;
+  background-color: white;
+  border-style: groove;
+  border-color: #69c1e97c;
+  border-width: 2px;
+}
+
+
+/* page{
   position: fixed;
 }
 
@@ -103,4 +151,4 @@ page{
   color: #000;
   font-size: 15px;
   margin-left: 40px;
-}
+} */

@@ -1,0 +1,45 @@
+<!-- 背景 -->
+<view class="background">
+  <!-- 锁号倒计时 -->
+  <view class="countDownBox">
+    <view class="countDownMain">请在{{wxTimer}}内完成支付</view>
+  </view>
+  <!-- 支付金额 -->
+  <view class="paymentAmountBox">
+    <view class="paymentAmountHead">支付金额(元)</view>
+    <view class="paymentAmountBottom">8.00</view>
+  </view>
+
+  <!-- 费用类型 -->
+  <view class="box clearfix">
+    <view class="boxLeft">费用类型</view>
+    <view class="boxRight">预约挂号</view>
+  </view>
+  <!-- 就诊科室 -->
+  <view class="box2 clearfix">
+    <view class="boxLeft">就诊科室</view>
+    <view class="boxRight">普外科</view>
+  </view>
+  <!-- 就诊日期 -->
+  <view class="box2 clearfix">
+    <view class="boxLeft">就诊日期</view>
+    <view class="boxRight">2020-02-19 星期三</view>
+  </view>
+  <!-- 就诊时段 -->
+  <view class="box2 clearfix">
+    <view class="boxLeft">就诊时段</view>
+    <view class="boxRight">上午 07:36</view>
+  </view>
+  <!-- 就诊人 -->
+  <view class="box2 clearfix">
+    <view class="boxLeft">就诊人</view>
+    <view class="boxRight">费吕宗</view>
+  </view>
+  <!-- 就诊卡号 -->
+  <view class="box2 clearfix">
+    <view class="boxLeft">就诊卡号</view>
+    <view class="boxRight">HC08223727</view>
+  </view>
+  <!-- 支付按钮 -->
+  <button class="confirmButton" bindtap="onConfirm222">微信支付</button>
+</view>

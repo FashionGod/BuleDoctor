@@ -1,0 +1,64 @@
+/* 背景 */
+.background {
+  height: 100%;
+  background-color: rgb(242, 248, 248);
+}
+/* 清除浮动 */
+.clearfix::before,.clearfix::after {
+    content: "";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
+/* 倒计时 */
+.countDownBox {
+  text-align: center;
+  background-color: yellow;
+}
+.countDownMain {
+  padding: 10px 0;
+  font-size: 14px;
+  color: orangered;
+}
+/* 支付金额 */
+.paymentAmountBox {
+  padding: 10px 0;
+  background-color: white;
+  text-align: center;
+}
+.paymentAmountHead {
+  font-size: 14px;
+}
+.paymentAmountBottom {
+  margin-top: 5px;
+  font-size: 26px;
+  color: orangered;
+}
+/* 费用类型 */
+.box {
+  padding: 10px 0; 
+  margin-top: 16px;
+  background-color: white;
+}
+/* 就诊科室到就诊卡号 */
+.box2 {
+  padding: 10px 0; 
+  background-color: white;
+}
+.boxLeft {
+  float: left;
+  margin-left: 10rpx;
+}
+.boxRight {
+  float: right;
+  margin-right: 10rpx;
+  color: gray;
+}
+/* 支付按钮 */
+.confirmButton {
+  width: 90%;
+  margin: 20px auto ;
+  color: white;
+  background-color: rgb(42, 197, 102);
+}
