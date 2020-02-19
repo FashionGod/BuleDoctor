@@ -4,7 +4,6 @@
     "pages/home/quickRegister/departmentDetail/departmentDetail",
     "pages/home/quickRegister/quickRegister",
     "pages/home/pickSelf/pickSelf",
-    "pages/ask/ask",
     "pages/order/order",
     "pages/me/me",
     "colorui/components/searchBox/searchBox",
@@ -35,12 +34,6 @@
         "iconPath": "/images/home.png",
         "selectedIconPath": "/images/home_selected.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/ask/ask",
-        "iconPath": "/images/ask.png",
-        "selectedIconPath": "/images/ask_selected.png",
-        "text": "问诊"
       },
       {
         "pagePath": "pages/order/order",

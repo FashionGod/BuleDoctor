@@ -78,12 +78,15 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
-					"pathName": "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
-					"query": "id=0",
 					"name": "pages/me/patientInformation/patientInformation",
 					"pathName": "pages/me/patientInformation/patientInformation",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/me/about/about",
+					"pathName": "pages/me/about/about",
 					"scene": null
 				}
 			]

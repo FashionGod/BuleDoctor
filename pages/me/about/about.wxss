@@ -1,1 +1,24 @@
 /* pages/me/about/about.wxss */
+
+page{
+  background: #f6f6f6;
+}
+.container{
+  width: 600rpx;
+  height: 260px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+}
+
+.title{
+  margin-top: 0px;
+  font-size: 40rpx;
+  color: gray;
+}
+
+.content{
+  margin: 10px 15rpx;
+  font-size: 30rpx;
+  color: gray;
+}

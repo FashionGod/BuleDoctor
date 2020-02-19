@@ -1,4 +1,4 @@
-<view class="container">
+<!-- <view class="container">
   <form>
     <view>
       <text>姓名</text>
@@ -27,23 +27,25 @@
     <view class="box">
       <input placeholder="请输入二代身份证号"></input>
     </view>
-    <view>
+    <!-- <view>
       <text>就诊卡号</text>
-      <radio-group>
+      <!-- <radio-group>
       <radio background="blue">有就诊卡</radio><radio>无就诊卡</radio>
-      </radio-group>
-    </view>
-    <view class="box">
+      </radio-group> -->
+    <!-- </view>  -->
+    <!-- <view class="box">
       <input placeholder="请输入就诊卡号"></input>
-    </view>
-    <view>
-      <button>提交</button>
+    </view> -->
+    <!-- <view>
+      <button form-type="submit">添加就诊人信息</button>
     </view>
   </form>
-</view>
-<!-- 
+</view> -->
+
+
+
 <form class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit">
-  <picker bindchange="PickerChange"  value="{{index}}" range="{{picker}}">
+  <!-- <picker bindchange="PickerChange"  value="{{index}}" range="{{picker}}">
   <view class="cu-form-group cu-item">
     <view class="title">类型</view>
     <view class="title text-gray">
@@ -51,7 +53,7 @@
     </view>
     <text class="cuIcon-triangledownfill lg text-black"></text>
   </view>
-  </picker>
+  </picker> -->
   <view class="cu-form-group cu-item">
     <view class="title">姓名</view>
     <input name="name" selectable="true" disabled="{{flag}}" placeholder="请输入姓名" value="{{}}"></input>
@@ -65,19 +67,9 @@
     <input name="wechat" selectable="true" disabled="{{flag}}" placeholder="请输入二代身份证号码" value="{{}}"></input>
   </view>
   <view class="cu-form-group cu-item">
-  <radio-group class="radioGroup">
-			<view class="title">就诊卡号</view>
-      <view class="radioStyle">
-      <view> 
-      <text class="text-gray">有就诊卡</text>
-			<radio class="" checked></radio>
-      </view>
-      <view>
-      <text class="text-gray">没有就诊卡</text>
-      <radio class=""></radio>
-      </view>
-      </view>
-	</radio-group>
+			<view class="title">就诊卡</view>
+      <text class="text-gray">请选择</text>
+      <picker></picker>
   </view>
   <view class="cu-form-group cu-item">
     <input name="email" selectable="true" disabled="{{flag}}" placeholder="请输入病例本上的条形码" value="{{imgdata.content[4].Value}}"></input>
@@ -88,4 +80,4 @@
     <button class="cu-btn lines-black button" form-type="submit">保存</button>
   </view>
 
-</form> -->
+</form> 

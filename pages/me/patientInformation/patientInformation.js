@@ -6,7 +6,7 @@ Page({
    */
   data: {
     index:null,
-    picker: ['成人', '儿童'],
+    picker: ['男', '女'],
   },
 
   /**

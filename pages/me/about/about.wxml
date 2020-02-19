@@ -1,2 +1,12 @@
-<!--pages/me/about/about.wxml-->
-<text>pages/me/about/about.wxml</text>
+<view class="container">
+  <view class="title">
+      关于蓝衣先生
+  </view>
+  <view class="content">
+    <text>
+    欢迎使用我们的小程序。
+    我们的小程序是为了方便用户在医院快速体检审查以及快速挂号的工具。
+    如果您在使用过程中遇到什么问题，欢迎通过反馈功能告诉我们，我们将尽快解决，感谢大家的支持！
+    </text>
+  </view>
+</view>

@@ -1,5 +1,5 @@
-/* pages/me/patientInformation/patientInformation.wxss */
 
+/* 
 .container{
   margin: 5px 10rpx;
   padding: 5px 10rpx;
@@ -46,8 +46,16 @@ form{
   border-width: 2px;
 }
 
+button{
+  margin-top: 20px;
+  background: rgba(29, 179, 92, 0.774);
+  width: 500rpx;
+}
 
-/* page{
+ */
+
+
+page{
   position: fixed;
 }
 
@@ -151,4 +159,4 @@ form{
   color: #000;
   font-size: 15px;
   margin-left: 40px;
-} */
+}
