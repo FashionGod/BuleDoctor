@@ -32,7 +32,7 @@ margin-top: 8px;
 width: 14px;
 height: 14px;
 border-radius: 50%;
-border: 1px solid gray;
+border: 1px solid rgb(236, 236, 236);
 }
 /* 三角形 */
 .tiangle {
@@ -47,27 +47,34 @@ border-left: 5px solid transparent;
 /* 上右 */
 .top_right {
 float: right;
-margin-top: 3px;
+margin-top: 2px;
 margin-right: 10rpx;
 height: 24px;
 line-height: 24px;
 text-align: center;
-/* border: 1px solid rgb(108, 199, 143); */
-border-radius: 3px
 }
 /* 按日期挂号 */
 .followDate {
 float: left; 
 width: 200rpx;
-border-radius: 3px;
+border: 1px solid rgb(52, 150, 90);
+border-right: 0;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
 color: white;
 background-color: rgb(52, 150, 90);
 }
 /* 按医生挂号 */
-/* .followDoctor {
-float: left; 
+.followDoctor {
+float: right; 
 width: 200rpx;
-} */
+border: 1px solid rgb(52, 150, 90);
+border-left: 0;
+border-top-right-radius: 3px;
+border-bottom-right-radius: 3px;
+color: rgb(52, 150, 90);
+background-color: white;
+}
 /* 星期布局(weekBody) */
 .weekBody {
 background-color: white;
@@ -84,8 +91,8 @@ padding: 5px 0;
 font-weight: 500;
 font-size: 16px;
 text-align: center;
-border-top: 0.6px solid gray;
-border-bottom: 0.6px solid gray;
+border-top: 0.6px solid rgb(224, 224, 224);
+border-bottom: 0.6px solid rgb(224, 224, 224);
 }
 /* 星期几对应日期的布局 */
 .weekDate {
@@ -114,4 +121,46 @@ display: none;
 pointer-events: none;
 padding: 10px 0 ;
 color: gray;
+}
+/* 医生信息 */
+.doctorBox {
+  border-top: 0.6px solid rgb(224, 224, 224);
+  border-bottom: 0.6px solid rgb(224, 224, 224);
+  background-color: white;
+}
+.doctorLeft {
+  float: left;
+  padding: 12px 0;
+  font-size: 16px;
+}
+.doctorImg {
+  float: left;
+  width: 35px;
+  height: 42px;
+  margin-left: 10rpx;
+}
+.doctorName {
+  float: left;
+  padding: 12px 0;
+  margin-left: 38rpx;
+}
+.doctorRight {
+  float: right;
+  font-size: 12px;
+  padding: 20px 0;
+  margin-right: 10rpx;
+  color: white
+}
+.moreNumber {
+  float: left;
+  padding: 3px 30rpx;
+  margin-right: 10rpx;
+  border-radius: 3px;
+  background-color: green;
+}
+.price {
+  float: left;
+  padding: 3px 30rpx;
+  border-radius: 3px;
+  background-color: orangered;
 }

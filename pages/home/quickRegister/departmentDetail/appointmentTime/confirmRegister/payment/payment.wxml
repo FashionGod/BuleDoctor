@@ -20,6 +20,11 @@
     <view class="boxLeft">就诊科室</view>
     <view class="boxRight">普外科</view>
   </view>
+  <!-- 医生名称 -->
+  <view class="box2 clearfix">
+    <view class="boxLeft">医生名称</view>
+    <view class="boxRight">平诊</view>
+  </view>
   <!-- 就诊日期 -->
   <view class="box2 clearfix">
     <view class="boxLeft">就诊日期</view>

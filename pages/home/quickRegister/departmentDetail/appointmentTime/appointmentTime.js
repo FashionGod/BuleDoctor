@@ -103,8 +103,21 @@ Page({
     this.data.registerList = [];
     let dateTemp = new Date();
     if (options.id != 0) {
-      this.data.registerList = this.data.registerListTemp;
-      this.data.searchflag = false;
+      // this.data.searchflag = false;
+      for (let item of this.data.registerListTemp) {
+        if (item.time > dateTemp.toTimeString()) {
+          this.data.registerList.push(item);
+        }
+      }
+      if (this.data.registerList.length == 0) {
+        this.data.num = 1;
+        this.data.num2 = 0;
+        this.data.registerList = this.data.registerListTemp;
+        console.log(this.data.num2)
+      } else {
+        this.data.num = 0;
+        this.data.num2 = -1;
+      }
     }else {
       // 列表项
       for (let item of this.data.registerListTemp) {

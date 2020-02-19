@@ -54,42 +54,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": 1,
-					"name": "pages/home/quickRegister/departmentDetail/departmentDetail",
-					"pathName": "pages/home/quickRegister/departmentDetail/departmentDetail",
-					"query": "departmentName=\"普外科\"",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
-					"pathName": "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
-					"query": "departmentName=普通外科&id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/home/quickRegister/quickRegister",
-					"pathName": "pages/home/quickRegister/quickRegister",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/me/patientInformation/patientInformation",
-					"pathName": "pages/me/patientInformation/patientInformation",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/me/about/about",
-					"pathName": "pages/me/about/about",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

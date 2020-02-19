@@ -2,6 +2,11 @@
 <view class="background">
 <!-- 表单备用 -->
 <form>
+  <!-- 医生姓名 -->
+  <view class="clinicDepartmentBox clearfix">
+    <view class="clinicDepartment">医生姓名</view>
+    <view class="clinicDepartmentMain">平诊</view>
+  </view>
   <!-- 就诊科室 -->
   <view class="clinicDepartmentBox clearfix">
     <view class="clinicDepartment">就诊科室</view>

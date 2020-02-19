@@ -57,7 +57,7 @@
                 data-circleregister="{{index}}"
                 bindtap="onCircleRegister">
                 {{item.date}}
-                <view class='style {{item.id==num2?"haveRegister":""}}'>有号</view>
+                <view class='style {{item.id===num2?"haveRegister":""}}'>有号</view>
           </view><!-- 挂号的圆圈结束 -->
       </view>
     </view> <!-- 星期几的日期结束 -->

@@ -24,8 +24,6 @@ form{
 
 
 #picktext1{
-
-
   margin-left: 20rpx;
   font-size: 11px;
 }

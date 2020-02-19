@@ -3,7 +3,7 @@
 <!-- 最上面的布局 -->
 <view class="top">
 <!-- 上左布局 -->
-<view class="top_left">
+<view class="top_left" wx:if="{{registerFlag}}">
 <!-- 时间 -->
 <text>{{date}}</text>
 <!-- 圆圈 -->
@@ -19,19 +19,21 @@ bindtap="onTriangle"></view>
 <view class="top_right">
 <!-- 按日期挂号 -->
 <view class="followDate" 
+style="background-color:{{color1}};color:{{color2}}"
 bindtap="followDate">
 按日期挂号
 </view>
-<!-- <view class="followDoctor" 
+<!-- 按医生挂号 -->
+<view class="followDoctor" 
 style="background-color:{{color2}};color:{{color1}}"
 bindtap="followDoctor">
 按医生挂号
-</view> -->
+</view>
 </view><!-- 上右布局结束 -->
 </view><!-- 最上面的布局结束 -->
 
 <!-- 星期布局 -->
-<view class="weekBody" wx:if="{{triangleFlag}}">
+<view class="weekBody" wx:if="{{triangleFlag&&registerFlag}}">
 <!-- 星期几 -->
 <view class="weekLeft">
 <view class="week"
@@ -56,7 +58,16 @@ bindtap="onCircleRegister">
 </view><!-- 星期布局结束 -->
 
 <!-- 医生布局 -->
-<view>
-
+<view class="doctorBox clearfix"
+    >
+  <view class="doctorLeft">
+    <image class="doctorImg" src="../../../../images/doctor.png"></image>
+    <view class="doctorName">平诊</view>
+  </view>
+  <view class="doctorRight">
+    <view class="moreNumber">余号:12</view>
+    <view class="price">￥8.00</view>
+  </view>
 </view>
+
 </view><!-- 背景结束 -->
