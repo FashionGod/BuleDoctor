@@ -27,11 +27,16 @@ Page({
       wx.navigateTo({
         url: 'physicalExaminationRecord/physicalExaminationRecord',
       })
-    } else if (e.currentTarget.dataset.index == 4) {
-      wx.navigateTo({
-        url: 'feedBack/feedBack',
-      })
-    } else if (e.currentTarget.dataset.index == 5) {
+    } 
+
+    //因为用了微信的API所以不需要反馈页面了
+    // else if (e.currentTarget.dataset.index == 4) {
+    //   wx.navigateTo({
+    //     url: 'feedBack/feedBack',
+    //   })
+    // }
+    
+     else if (e.currentTarget.dataset.index == 5) {
       wx.navigateTo({
         url: 'about/about',
       })

@@ -76,7 +76,7 @@ page {
 }
 
 .title {
-  position: absolute;
+  position: fixed;
   top: 5rpx;
   left: 55%;
   width: 650rpx;
@@ -117,8 +117,8 @@ page {
   transition: all 0.35s ease;
 }
 
-.logo {
-  position: absolute;
+/* .logo {
+  position: fixed;
   z-index: 2;
   left: 50%;
   bottom: 200rpx;
@@ -129,7 +129,7 @@ page {
   animation: sway 10s ease-in-out infinite;
   opacity: 0.95;
   border: 2px solid #f0f0f0;
-}
+} */
 
 .logoImage {
   left: 50%;

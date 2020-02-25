@@ -1,2 +1,3 @@
-<!--pages/order/order.wxml-->
+!--pages/order/order.wxml-->
 <text>pages/order/order.wxml</text>
+<button  open-type="feedback"></button>

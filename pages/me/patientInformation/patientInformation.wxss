@@ -57,6 +57,10 @@ page{
   position: fixed;
 }
 
+.lastborder{
+  border-radius: 0 0 10px 10px;
+}
+
 .radioGroup{
   display: flex;
   flex-direction:row;

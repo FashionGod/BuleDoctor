@@ -45,38 +45,31 @@
 
 
 <form class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit">
-  <!-- <picker bindchange="PickerChange"  value="{{index}}" range="{{picker}}">
-  <view class="cu-form-group cu-item">
-    <view class="title">类型</view>
-    <view class="title text-gray">
-    {{index?picker[index]:'成人'}}
-    </view>
-    <text class="cuIcon-triangledownfill lg text-black"></text>
-  </view>
-  </picker> -->
   <view class="cu-form-group cu-item">
     <view class="title">姓名</view>
-    <input name="name" selectable="true" disabled="{{flag}}" placeholder="请输入姓名" value="{{}}"></input>
+    <input name="name" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入姓名" value="{{name}}"></input>
   </view>
   <view class="cu-form-group cu-item">
-    <view class="title">手机号</view>
-    <input name="photo" selectable="true" disabled="{{flag}}" placeholder="请输入电话号码" value="{{}}"></input>
+    <view class="title">性别</view>
+    <picker name="sex" bindchange="PickerChange" disabled="{{flagDisabled}}" range="{{picker}}" value="{{sex}}">
+      <view>{{sex?picker[sex]:'请选择性别'}}</view>
+    </picker>
   </view>
   <view class="cu-form-group cu-item">
+    <view class="title">年龄</view>
+    <input name="age" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入年龄" value="{{age}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">联系方式</view>
+    <input name="phoneNumber" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入电话号码" value="{{phoneNumber}}"></input>
+  </view>
+  <view class="cu-form-group cu-item lastborder">
     <view class="title">证件</view>
-    <input name="wechat" selectable="true" disabled="{{flag}}" placeholder="请输入二代身份证号码" value="{{}}"></input>
+    <input name="idcard" type="idcard" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入二代身份证号码" value="{{idcard}}"></input>
   </view>
-  <view class="cu-form-group cu-item">
-			<view class="title">就诊卡</view>
-      <text class="text-gray">请选择</text>
-      <picker></picker>
-  </view>
-  <view class="cu-form-group cu-item">
-    <input name="email" selectable="true" disabled="{{flag}}" placeholder="请输入病例本上的条形码" value="{{imgdata.content[4].Value}}"></input>
-  </view>
-
+ 
   <view class="top">
-    <button class="cu-btn lines-black button" bindtap="alter">编辑</button>
+    <button class="cu-btn lines-black button" bindtap="edit">编辑</button>
     <button class="cu-btn lines-black button" form-type="submit">保存</button>
   </view>
 

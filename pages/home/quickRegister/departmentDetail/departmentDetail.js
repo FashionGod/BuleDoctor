@@ -219,9 +219,9 @@ Page({
       id: e.currentTarget.dataset.circleregister,
     })
     
-    // wx.navigateTo({
-    //   url: 'appointmentTime/appointmentTime?departmentName=' + this.data.departmentName + '&id=' + this.data.id,
-    // })
+    wx.navigateTo({
+      url: 'appointmentTime/appointmentTime?departmentName=' + this.data.departmentName + '&id=' + this.data.id,
+    })
     wx.hideToast();
   },
   /**

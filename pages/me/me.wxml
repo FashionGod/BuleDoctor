@@ -10,7 +10,6 @@
         <button wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 
         <image class="logoImage" src="../../images/BlueDoctor.png"></image> 
         </button> 
-        <image wx:else class="logo" src="{{userInfo.avatarUrl}}"></image> 
         <!-- <image class="img wave" src="../../images/wave.png" mode="aspectFill"></image> 
         <image class="img wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image> --> 
       </view> 
@@ -43,11 +42,11 @@
             <text>体检项目记录</text> 
             <text class="arrow"></text> 
           </view> 
-          <view bindtap="onClick" data-index="4" class="item"> 
-            <image src="../../images/feedback.png" mode="scaleToFill" /> 
+          <button style="padding:0;" open-type="feedback"  class="item"> 
+            <image style="margin-left:20rpx;"src="../../images/feedback.png" mode="scaleToFill" /> 
             <text>反馈</text> 
             <text class="arrow"></text> 
-          </view> 
+          </button> 
           <!-- <view wx:if="{{isAdmin}}" bindtap="onClick" data-index="5" class="item"> 
             <image src="" mode="scaleToFill" /> 
             <text>管理员</text> 
