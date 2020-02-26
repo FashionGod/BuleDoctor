@@ -56,28 +56,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/me/patientInformation/patientInformation",
-					"pathName": "pages/me/patientInformation/patientInformation",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/me/about/about",
-					"pathName": "pages/me/about/about",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/me/me",
-					"pathName": "pages/me/me",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

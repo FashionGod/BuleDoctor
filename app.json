@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/home/home",
     "pages/home/quickRegister/departmentDetail/departmentDetail",
     "pages/home/quickRegister/quickRegister",
@@ -7,14 +8,16 @@
     "pages/order/order",
     "pages/me/me",
     "colorui/components/searchBox/searchBox",
-    "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
-    "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
+"pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
+"pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
     "pages/me/patientInformation/patientInformation",
     "pages/me/registrationRecord/registrationRecord",
     "pages/me/physicalExaminationRecord/physicalExaminationRecord",
     "pages/me/feedBack/feedBack",
     "pages/me/about/about",
-    "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment"
+"pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment",
+    "pages/uploader/uploader",
+    "pages/doctor/doctor"
   ],
   "window": {
     "backgroundTextStyle": "light",

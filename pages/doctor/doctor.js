@@ -1,6 +1,6 @@
-// pages/me/about/about.js
+// pages/doctor/doctor.js
 Page({
-  
+
   /**
    * 页面的初始数据
    */

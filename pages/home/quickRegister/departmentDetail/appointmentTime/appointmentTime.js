@@ -117,6 +117,7 @@ Page({
       } else {
         this.data.num = 0;
         this.data.num2 = -1;
+        this.data.registerList = this.data.registerListTemp;
       }
     }else {
       // 列表项

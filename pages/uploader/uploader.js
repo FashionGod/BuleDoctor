@@ -1,6 +1,6 @@
-// pages/me/about/about.js
+// pages/uploader/uploader.js
 Page({
-  
+
   /**
    * 页面的初始数据
    */

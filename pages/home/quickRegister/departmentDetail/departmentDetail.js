@@ -100,6 +100,7 @@ Page({
   onLoad: function (options) {
     //获取当前日期
     let dateTemp = new Date();
+    console.log(dateTemp.getHours())
     //设置周
     let weekTemp = ["日", "一", "二", "三", "四", "五", "六"]
     var week = [];
@@ -113,9 +114,8 @@ Page({
       { "id": 6, "date": '' },
     ]
     for (let i = dateTemp.getDay(), j = 0, k = dateTemp.getDate(); i < 7; i++ , j++ , k++) {
-
       if (j == 7) {
-        weekDate[j - 1].date = k - 1;
+          weekDate[j - 1].date = k-1;
         break;
       } else if (i == 6) {
         week.push(weekTemp[i]);
