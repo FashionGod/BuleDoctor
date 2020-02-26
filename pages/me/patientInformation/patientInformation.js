@@ -14,10 +14,6 @@ Page({
     idcard:null,
     picker: ['男', '女'],
     sickNumber:null,
-    userInfo:{
-      nickName:''
-    },
-    patientInfo:{}
   },
   
   /**
@@ -29,14 +25,22 @@ Page({
     }).then(res =>{
       console.log(res)
       console.log(res.result.data)
-      this.setData({
-        name:res.result.data.name,
-        sex:res.result.data.sex,
-        age:res.result.data.age,
-        phoneNumber:res.result.data.phoneNumber,
-        idcard:res.result.data.idcard
-      })
-      console.log('patientInfo',this.data.patientInfo)
+      if(res.result.code = -1){
+        wx.showToast({
+          title: '请填写有关信息',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+      else if(res.result.code = 0){
+        this.setData({
+          name: res.result.data.name,
+          sex: res.result.data.sex,
+          age: res.result.data.age,
+          phoneNumber: res.result.data.phoneNumber,
+          idcard: res.result.data.idcard
+        })
+      }
       console.log(this.data)
     })
     // this.doit()(覃总教的一套流程要加this.)
@@ -55,8 +59,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('onshowinfo',this.data.patientInfo)
-    console.log(this.data.sex)
     
   },
   PickerChange(e) {
