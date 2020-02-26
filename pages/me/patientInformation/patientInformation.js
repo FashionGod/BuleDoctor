@@ -82,8 +82,6 @@ Page({
               age: data.detail.value.age,
               phoneNumber: data.detail.value.phoneNumber,
               idcard: data.detail.value.idcard,
-              sickNumber: data.detail.value.sickNumber,
-              nickName: that.data.userInfo.nickName,
             }
           }).then(res =>{
             console.log(res)

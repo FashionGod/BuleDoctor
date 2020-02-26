@@ -14,16 +14,33 @@ exports.main = async (event, context) => {
     _id:wxContext.OPENID
   }).count().then(res => {
     if(res.total<=0){
-      return db.collection('PatientInfo').add({
-        data: {
-          _id:wxContext.OPENID,
-          name:event.name,
-          sex:event.sex,
-          age:event.age,
-          phoneNumber:event.phoneNumber,
-          idcard:event.idcard,
-          sickNumber:event.sickNumber,
-          nickName: event.nickName,
+      db.collection('PatientInfo').count().then(res => {
+        if (res.total > 0) {
+          db.collection('PatientInfo').add({
+            data:{
+              _id: wxContext.OPENID,
+              sickNumber: res.total + 1,
+              name: event.name,
+              sex: event.sex,
+              age: event.age,
+              phoneNumber: event.phoneNumber,
+              idcard: event.idcard,
+            }
+          })
+          
+        }
+        else {
+          db.collection('PatientInfo').add({
+            data:{
+              _id: wxContext.OPENID,
+              sickNumber: 1,
+              name: event.name,
+              sex: event.sex,
+              age: event.age,
+              phoneNumber: event.phoneNumber,
+              idcard: event.idcard,
+            }
+          })
         }
       })
     }
@@ -35,13 +52,8 @@ exports.main = async (event, context) => {
           age: event.age,
           phoneNumber: event.phoneNumber,
           idcard: event.idcard,
-          sickNumber: event.sickNumber,
-          nickName: event.nickName,
         }
       })
     }
-  })
-  .then(res =>{
-    return db.collection('PatientInfo').doc(wxContext.OPENID).get()
   })
 }
