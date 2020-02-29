@@ -5,17 +5,16 @@
     "pages/home/quickRegister/departmentDetail/departmentDetail",
     "pages/home/quickRegister/quickRegister",
     "pages/home/pickSelf/pickSelf",
-    "pages/order/order",
     "pages/me/me",
     "colorui/components/searchBox/searchBox",
-"pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
-"pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
+    "pages/home/quickRegister/departmentDetail/appointmentTime/appointmentTime",
+    "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/confirmRegister",
     "pages/me/patientInformation/patientInformation",
     "pages/me/registrationRecord/registrationRecord",
     "pages/me/physicalExaminationRecord/physicalExaminationRecord",
     "pages/me/feedBack/feedBack",
     "pages/me/about/about",
-"pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment",
+    "pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment",
     "pages/uploader/uploader",
     "pages/doctor/doctor"
   ],
@@ -37,12 +36,6 @@
         "iconPath": "/images/home.png",
         "selectedIconPath": "/images/home_selected.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "iconPath": "/images/order.png",
-        "selectedIconPath": "/images/order_selected.png",
-        "text": "订单"
       },
       {
         "pagePath": "pages/me/me",

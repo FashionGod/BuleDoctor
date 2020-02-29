@@ -1,7 +1,0 @@
-/* pages/order/order.wxss */
-
-button{
-  width: 200rpx;
-  height: 100px;
-  background-color: pink;
-}

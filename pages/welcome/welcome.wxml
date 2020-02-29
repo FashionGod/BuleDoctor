@@ -1,21 +1,22 @@
-
-<button bindtap="toNext" style="background-color:red">用户登录</button>
+<view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view wx:else>
+<button bindtap="toNext" style="background-color:red">
+  用户登录</button>
 
 <form bindsubmit="toDoctor">
-<input placeholder="请输入医生密码" 
-       type="password" 
-       wx:if="{{doctorFlag}}"
-       name="doctor"></input>
-<button formType="submit" wx:if="{{doctorFlag}}" style="background-color:pink">确定</button>
-<button bindtap="displayDoctor" style="background-color:blue">医生登录</button>
+
+  <button bindtap="displayDoctor" style="background-color:blue">医生登录</button>
+  <input placeholder="请输入医生密码" type="password" wx:if="{{doctorFlag}}" name="doctor"></input>
+  <button formType="submit" wx:if="{{doctorFlag}}" style="background-color:pink">确定</button>
 </form>
 
 <form bindsubmit="toUploader">
-<input placeholder="请输入上传人员密码" 
-       type="password" 
-       wx:if="{{uploaderFlag}}"
-       name="uploader"></input>
-<button formType="submit" wx:if="{{uploaderFlag}}" style="background-color:pink">确定</button>
-<button bindtap="displayUploader" style="background-color:green">上传人员登录</button>
-</form>
 
+
+  <button bindtap="displayUploader" style="background-color:green">上传人员登录</button>
+  <input placeholder="请输入上传人员密码" type="password" wx:if="{{uploaderFlag}}" name="uploader"></input>
+  <button formType="submit" wx:if="{{uploaderFlag}}" style="background-color:pink">确定</button>
+</form>
+</view>

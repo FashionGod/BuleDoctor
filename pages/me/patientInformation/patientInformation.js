@@ -76,21 +76,19 @@ Page({
         if(res.confirm){
           console.log("用户点击确定保存")
           console.log(data.detail.value)
-          return wx.cloud.callFunction({
+          console.log(app.globalData.openid)
+          wx.cloud.callFunction({
             name: 'uploadPatientInfo',
             data: {
+              openid:app.globalData.openid,
               name: data.detail.value.name,
               sex: data.detail.value.sex,
               age: data.detail.value.age,
               phoneNumber: data.detail.value.phoneNumber,
               idcard: data.detail.value.idcard,
             }
-          }).then(res =>{
-            console.log(res)
-            if(res.result.success){
-              console.log('更新病人信息成功')
-            }
           })
+          
         }
         else if(res.cancel){
           console.log("用户点击取消保存")

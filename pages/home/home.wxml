@@ -1,17 +1,3 @@
-<!--index.wxml-->
-<!-- <view class="container">
-
-</view>
-
-<view class="cu-bar search ">
-    <view class="search-form round">
-      <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索症状/疾病/药品/医生/科室" confirm-type="search"></input>
-    </view>
-    <view class="action">
-      <button class="cu-btn bg-cyan.light shadow-blur round">搜索</button>
-    </view>
-</view> -->
 <swiper class="swiper" indicator-dots="true" autoplay="true" circular="true" previous-margin="80rpx" next-margin="80rpx" bindchange="handleChange">
       <swiper-item wx:for="{{4}}" wx:key="{{index}}" bindtap="onViewHot" data-index="{{index}}">
         <view class="slide-image {{currentIndex == index ? 'active': ''}}">
@@ -20,6 +6,7 @@
         </view>
       </swiper-item>
     </swiper>
+<view wx:if="{{admin == 0 ? true : false}}">
 <view class="buttonLayout">
     <view class="FunctionButton"  >
     <image bindtap="ToRegistration" class="FunctionImageStyle" mode="aspectFit" src="../../images/home_register_button.png" plain="true"></image>
@@ -30,4 +17,11 @@
     <image bindtap="toPickSelf" class="FunctionImageStyle" mode="aspectFit" src="../../images/home_test_button.png" plain="true"></image>
     <text  class="FunctionText">自选体检项目</text>
     </view>
+</view>
+</view>
+<view wx:if="{{admin == 2 ? true : false}}">
+  <view style="margin: 50px auto" class="FunctionButton">
+    <image class="FunctionImageStyle" plain="true" src="../../images/upload.png"></image>
+    <text  class="FunctionText">上传体检报告</text>
+  </view>
 </view>

@@ -4,18 +4,22 @@ var time = 0;
 var touchDot = 0;//触摸时的原点
 var interval = "";
 var flag_hd = true;
+const app = getApp()
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     currentIndex:0,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    admin:null
   },
 
-  onLoad: function () {
-    
-
+  onLoad: function (option) {
+    console.log("appdata",app.globalData.admin)
+    this.setData({
+      admin:app.globalData.admin
+    })
   },
   ToRegistration(){
     wx.navigateTo({
