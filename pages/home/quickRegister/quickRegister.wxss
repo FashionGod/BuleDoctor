@@ -76,10 +76,7 @@
   width: 100%;
   text-align: center;
   background-color: white;
-  /* 每个item的颜色 */
-  /* background-color: #fff; */
   margin: 0;
-  /* border: none; */
   border-bottom-style: solid;
   border-bottom-width: 1rpx;
   border-bottom-color: #f1f1f1;

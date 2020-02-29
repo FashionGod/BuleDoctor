@@ -1,0 +1,114 @@
+<!-- 背景开始 -->
+<view class="background">
+  <!-- 上面布局开始 -->
+  <view class="top_cur">
+    <!-- 图片和文字开始 -->
+    <view class="docAndTxt">
+      <!-- 图片 -->
+      <image class="docImg"       
+             src="../../../../../images/BlueDoctor.png"></image>
+             <view class="docAndDepartment">
+                <!-- 医生文字 -->
+                <view class="docText">平诊</view>     
+                <!-- 部门文字 -->
+                <view class="departmentText">{{departmentName}}</view>
+             </view>
+        
+    </view><!-- 图片和文字结束 -->
+    <!-- 挂号文字 -->
+    <view class="top_botton clearfix">
+      <view class='top_bottonleft_txt style {{selectFlag1==true?"onSelect":""}} '
+            bindtap="onSelect1">挂号</view>
+      <view class='top_bottonright_txt style {{selectFlag2==true?"onSelect":""}} '
+            bindtap="onSelect2">介绍</view>
+    </view>
+  </view><!-- 上面布局结束 -->
+
+<!-- 搬过来的 -->
+<!-- 最上面的布局 -->
+<view class="top clearfix" wx:if="{{selectFlag1}}">
+  <!-- 上左布局 -->
+  <view class="top_left">
+    <!-- 时间 -->
+    <text>{{date}}</text>
+  </view> <!-- 上左布局结束 -->
+
+  <!-- 上右布局 -->
+  <view class="top_right">
+      <!-- 圆圈 -->
+        <view class="circle">
+         <!-- 三角形 -->
+          <view class="tiangle" 
+                style="top:{{top}}px;border-top: 5px solid {{triangleColor1}}; border-bottom: 5px solid {{triangleColor2}};" 
+                bindtap="onTriangle"></view>
+      </view> <!-- 圆圈结束 -->
+        <view class="top_right-txt" bindtap="onTriangle">更多日期</view>
+    </view><!-- 上右布局结束 -->
+  </view><!-- 最上面的布局结束 -->
+
+<!-- 星期布局 -->
+<view class="weekBody" wx:if="{{triangleFlag}}">
+    <!-- 星期几 -->
+    <view class="weekLeft">
+      <view class="week"
+          wx:for="{{week}}"
+          wx:key>
+          {{item}}</view>
+    </view><!-- 星期几结束 -->
+    <!-- 星期几的日期 -->
+    <view class="weekLeft">
+      <view class="weekDate"
+          wx:for="{{weekDate}}"
+          wx:key
+          >
+          <!-- 挂号的圆圈 -->
+          <view class='style {{item.id==num?"circleRegister":""}} style {{item.id==num2?"haveRegister2":""}}'
+                data-circleregister="{{index}}"
+                bindtap="onCircleRegister">
+                {{item.date}}
+                <view class='style {{item.id===num2?"haveRegister":""}}'>有号</view>
+          </view><!-- 挂号的圆圈结束 -->
+      </view>
+    </view> <!-- 星期几的日期结束 -->
+</view><!-- 星期布局结束 -->
+
+<!-- 号的列表 -->
+<scroll-view class="listbgc"
+             wx:for="{{registerList}}"
+             wx:key
+             data-id="{{index}}"
+             bindtap="onListItem"
+             wx:if="{{selectFlag1}}">
+  <!-- 列表 -->
+  <view class="list">
+    <!-- 列表左边 -->
+    <view class="listLeft">
+      <!-- 上午或下午 -->
+      <view class="registerDay">{{item.day}}</view><!-- 上午或下午结束 -->
+        <!-- 时间 -->
+        <view class="registerTime">{{item.time}}</view><!-- 时间结束 -->
+    </view><!-- 列表左边结束-->
+      <!-- 列表右边 -->
+      <view class="listRight">
+        <!-- 钱 -->
+        <view class="money">{{item.price}}</view>
+        <!-- 箭头 -->
+        <view class="arrow"></view>
+      </view><!-- 列表右边结束 -->
+  </view><!-- 列表结束 -->
+</scroll-view><!-- 号的列表结束 -->
+
+<view class="docInf" wx:if="{{selectFlag2==true}}">
+  <view class="docIntroductionBox">
+    <view class="docIntroduction">介绍</view>
+    <view class="docIntroductionContent">
+      <view>姓名：李芳</view>
+      <view>职称：主治医生</view>
+      <view>专业：神经病学</view>
+      <view>出诊时间： 周一、二、三、五全天</view>
+      <view>个人经历：硕士学位，国家二级心里咨询时，从事神经内科工作近十年，擅长神经系统长剑疾病，脑血管疾病，睡眠障碍，情绪障碍等诊断及治疗，尤其是心身疾病，卒中后抑郁，失眠，焦虑症及抑郁症等神经心里疾病诊断及治疗。</view>
+    </view>
+  </view>
+</view>
+
+</view><!-- 背景结束 -->

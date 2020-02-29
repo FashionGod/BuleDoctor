@@ -56,7 +56,50 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/home/pickSelf/pickSelf",
+					"pathName": "pages/home/pickSelf/pickSelf",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/home/pickSelf/itemDetail/itemDetail",
+					"pathName": "pages/home/pickSelf/itemDetail/itemDetail",
+					"query": "departmentName=脑补CT",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/home/pickSelf/itemDetail/itemDetail",
+					"pathName": "pages/home/pickSelf/itemDetail/itemDetail",
+					"query": "departmentName=脑部CT",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/pickSelf/itemDetail/itemAppointTime/itemAppointTime",
+					"pathName": "pages/home/pickSelf/itemDetail/itemAppointTime/itemAppointTime",
+					"query": "departmentName=脑部CT",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/pickSelf/itemDetail/itemDetail",
+					"pathName": "pages/home/pickSelf/itemDetail/itemDetail",
+					"query": "departmentName=脑补CT",
+					"scene": null
+				}
+			]
 		}
 	}
 }
