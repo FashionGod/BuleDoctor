@@ -1,0 +1,42 @@
+<!-- 背景 -->
+<view class="background">
+<!-- 表单备用 -->
+<form>
+  <!-- 医生姓名 -->
+  <view class="clinicDepartmentBox clearfix">
+    <view class="clinicDepartment">医生姓名</view>
+    <view class="clinicDepartmentMain">平诊</view>
+  </view>
+  <!-- 就诊科室 -->
+  <view class="clinicDepartmentBox clearfix">
+    <view class="clinicDepartment">就诊科室</view>
+    <view class="clinicDepartmentMain">普外科</view>
+  </view>
+  <!-- 就诊时段 -->
+  <view class="seeTimeBox clearfix">
+    <view class="seeTime">就诊时段</view>
+      <view class="seeTimeMain">
+        <view class="seeTimeMainTop">2020-02-19 星期三</view>
+        <view class="seeTimeMainBottom">上午 07:42</view>
+      </view>
+  </view>
+  <!-- 挂号金额 -->
+  <view class="registeredAmountBox clearfix">
+    <view class="registeredAmount">挂号金额</view>
+    <view class="registeredAmountMain">￥8.00</view>
+  </view>
+  <!-- 就诊人信息 -->
+  <view class="patientInformationBox clearfix">
+    <!-- <view class="patientInformationImg"> -->
+      <image class="patientInformationImg" src="../../../../../../images/patient.png"></image>    
+    <!-- </view> -->
+    <view class="patientInformationTxtBox">
+      <view class="patientName">费吕宗</view>
+      <view class="patientMedicalCardNumber">HC08223727</view>
+    </view>
+  </view>
+<!-- 提交按钮   -->
+<button class="confirmButton" bindtap="onConfirm">确认预约</button>
+</form>  
+  
+</view>

@@ -31,7 +31,7 @@ Page({
   },
   toPickSelf(){
     wx.navigateTo({
-      url: '../home/pickSelf/pickSelf',
+      url: '../home/pickSelf/pickSelf?id=1',
     })
   },
   onShow:function(){
