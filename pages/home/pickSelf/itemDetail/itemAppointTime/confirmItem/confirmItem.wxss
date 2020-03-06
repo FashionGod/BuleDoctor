@@ -49,7 +49,7 @@
 }
 .seeTimeMainBottom {
   padding-top: 2px;
-  margin-left: 92rpx;
+  margin-left: 60rpx;
 }
 /* 挂号金额 */
 .registeredAmountBox {

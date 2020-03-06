@@ -12,7 +12,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
+    console.log(options)
+    let doctor = JSON.parse(options.doctor);
+    let seeTime2 = JSON.parse(options.seeTime2);
+    this.setData({
+      doctor: doctor,
+      seeTime1: options.seeTime1,
+      seeTime2: seeTime2,
+      weekDate: options.weekDate,
+    })
   },
   onConfirm() {
     wx.showToast({
@@ -28,8 +36,21 @@ Page({
       duration: 3000,
     })
     wx.hideToast();
+    let doctor = JSON.stringify(this.data.doctor);
+    let seeTime1 = this.data.seeTime1;
+    let seeTime2 = JSON.stringify(this.data.seeTime2);
+    let weekDate = this.data.weekDate;
+    // console.log(doctor)
+    // console.log(seeTime1)
+    // console.log(seeTime2)
+    // console.log(weekDate)
+
     wx.navigateTo({
-      url: 'itemPayment/itemPayment',
+      url: 'itemPayment/itemPayment?doctor='+ doctor +
+      '&seeTime1=' + seeTime1 +
+      '&seeTime2=' + seeTime2 +
+      '&weekDate=' + weekDate 
+      ,
     })
   },
   /**
@@ -43,9 +64,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // wx.navigateTo({
-    //   url: '../../appointmentTime/appointmentTime?idasd=1',
-    // })
   },
 
   /**

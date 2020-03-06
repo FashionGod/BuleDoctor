@@ -72,13 +72,6 @@
 					"scene": null
 				},
 				{
-					"id": 2,
-					"name": "pages/home/pickSelf/itemDetail/itemDetail",
-					"pathName": "pages/home/pickSelf/itemDetail/itemDetail",
-					"query": "departmentName=脑补CT",
-					"scene": null
-				},
-				{
 					"id": 3,
 					"name": "pages/home/pickSelf/itemDetail/itemDetail",
 					"pathName": "pages/home/pickSelf/itemDetail/itemDetail",
@@ -86,10 +79,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "pages/home/pickSelf/itemDetail/itemAppointTime/itemAppointTime",
 					"pathName": "pages/home/pickSelf/itemDetail/itemAppointTime/itemAppointTime",
-					"query": "departmentName=脑部CT",
+					"query": "num=1&doctor= {\"doctorName\":\"平诊\",\"doctorNumber\":\"0\",\"department\":\"脑部CT\",\"price\":\"39.00\",\"moreRegisterList\":[68,29,68,68,68,68,68],\"workTime\":[2,3,4,5,6],\"jobTitle\":\"主治医生\",\"major\":\"神经病学\",\"personalExperience\":\"blablabla\"}&weekDate= [{\"id\":0,\"year\":2020,\"month\":3,\"date\":5},{\"id\":1,\"year\":2020,\"month\":3,\"date\":6},{\"id\":2,\"year\":2020,\"month\":3,\"date\":7},{\"id\":3,\"year\":2020,\"month\":3,\"date\":8},{\"id\":4,\"year\":2020,\"month\":3,\"date\":9},{\"id\":5,\"year\":2020,\"month\":3,\"date\":10},{\"id\":6,\"year\":2020,\"month\":3,\"date\":11}]",
 					"scene": null
 				},
 				{
@@ -97,6 +90,13 @@
 					"name": "pages/home/pickSelf/itemDetail/itemDetail",
 					"pathName": "pages/home/pickSelf/itemDetail/itemDetail",
 					"query": "departmentName=脑补CT",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/home/pickSelf/itemDetail/itemAppointTime/confirmItem/itemPayment/itemPayment",
+					"pathName": "pages/home/pickSelf/itemDetail/itemAppointTime/confirmItem/itemPayment/itemPayment",
+					"query": "doctor={\"doctorName\":\"平诊\",\"doctorNumber\":\"0\",\"department\":\"脑部CT\",\"price\":\"39.00\",\"moreRegisterList\":[68,29,68,68,68,68,68],\"workTime\":[2,3,4,5,6],\"jobTitle\":\"主治医生\",\"major\":\"神经病学\",\"personalExperience\":\"blablabla\"}&seeTime1=2020-3-5&seeTime2={\"id\":38,\"day\":\"下午\",\"time\":\"13:06\",\"price\":\"39.00\",\"state\":\"39.00\"}&weekDate=四",
 					"scene": null
 				}
 			]

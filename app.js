@@ -44,6 +44,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    noRegister: false,
+    itemAppointTimeListId: {},
   }
 })

@@ -1,8 +1,9 @@
 // pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment.js
 var timer = require('../../../../../../../plugins/wxTimer.js');
 var wxTimer = new timer({
-  beginTime: "00:15:00"
+  beginTime: "00:00:05",
 })
+const app = getApp();
 Page({
 
   /**
@@ -11,18 +12,30 @@ Page({
   data: {
     wxTimerList: {},
   },
-
+  submitInfo(e) {
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    let doctor = JSON.parse(options.doctor);
+    let seeTime2 = JSON.parse(options.seeTime2);
+    this.setData({
+      doctor: doctor,
+      seeTime1: options.seeTime1,
+      seeTime2: seeTime2,
+      weekDate: options.weekDate,
+    })
     wxTimer.calibration()
     wxTimer.start(this);
-    console.log()
     console.log(wxTimer)
     wxTimer.calibration()
+    app.globalData.wxTimer = wxTimer;
+    console.log(app.globalData.wxTimer)
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
