@@ -1,29 +1,31 @@
 // pages/me/me.js
-
+const app = getApp()
 Page({
   
   /**
    * 页面的初始数据
    */
   data: {
-
+    admin:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    this.setData({
+      admin:app.globalData.admin
+    })
     
   },
   onClick(e) {
     if (e.currentTarget.dataset.index == 1) {
       wx.navigateTo({
-        url: 'patientInformation/patientInformation',
+        url: 'personInformation/personInformation',
       })
     } else if (e.currentTarget.dataset.index == 2) {
       wx.navigateTo({
-        url: 'registrationRecord/registrationRecord',
+        url: 'orderRecord/orderRecord',
       })
     } else if (e.currentTarget.dataset.index == 3) {
       wx.navigateTo({
@@ -38,7 +40,7 @@ Page({
     //   })
     // }
     
-     else if (e.currentTarget.dataset.index == 5) {
+     else if (e.currentTarget.dataset.index == 4) {
       wx.navigateTo({
         url: 'about/about',
       })

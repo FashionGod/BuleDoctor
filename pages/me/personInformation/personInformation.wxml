@@ -1,0 +1,150 @@
+
+
+<!-- 患者信息填写 -->
+<form wx:if="{{admin == 0 ? true : false}}" class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit1">
+  <view class="cu-form-group cu-item">
+    <view class="title">姓名</view>
+    <input name="patientName" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入姓名" value="{{patientName}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">性别</view>
+    <picker name="sex" bindchange="PickerChange" disabled="{{flagDisabled}}" range="{{picker}}" value="{{sex}}">
+      <view>{{sex?picker[sex]:'请选择性别'}}</view>
+    </picker>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">年龄</view>
+    <input name="age" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入年龄" value="{{age}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">联系方式</view>
+    <input name="phoneNumber" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入电话号码" value="{{phoneNumber}}"></input>
+  </view>
+  <view class="cu-form-group cu-item lastborder">
+    <view class="title">证件</view>
+    <input name="idcard" type="idcard" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入二代身份证号码" value="{{idcard}}"></input>
+  </view>
+ 
+  <view class="top">
+    <button class="cu-btn lines-black button" bindtap="edit">编辑</button>
+    <button class="cu-btn lines-black button" form-type="submit">保存</button>
+  </view>
+
+</form> 
+
+<!-- 医生信息填写 -->
+<form wx:if="{{admin == 1 ? true : false}}" class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit2">
+  <view class="cu-form-group cu-item">
+    <view class="title">姓名</view>
+    <input name="doctorName" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入姓名" value="{{doctorName}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">系别</view>
+    <picker name="department" mode="multiSelector" bindchange="bindMultiPickerChange1" bindcolumnchange="bindMultiPickerColumnChange1" disabled="{{flagDisabled}}"   value="{{multiIndex1}}" range="{{multiArray1}}">    
+      <view>{{showDepart?multiArray1[0][multiIndex1[0]]+" "+multiArray1[1][multiIndex1[1]]:"请选择系部"}}</view>
+    </picker>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">挂号价格</view>
+    <input name="price" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入价格" value="{{price}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">工作时间</view>
+
+     <view class="action">
+    <button class="cu-btn bg-gray " disabled="{{flagDisabled}}" bindtap="showModal" data-target="ChooseModal">查看</button>
+  </view>
+    <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-red" bindtap="hideModal">取消</view>
+      <view class="action text-green" bindtap="hideModal">确定</view>
+    </view>
+    <view class="grid col-4 padding-sm" style="margin-bottom:100px;">
+      <view  wx:for="{{checkbox}}" class="padding-xs "  wx:key="{{index}}">
+        <button name="checkbox" value="{{item}}" class="cu-btn gray lg block {{item.checked?'bg-blue.light':'line-gray'}}" bindtap="{{flagDisabled?'':'ChooseCheckbox'}}" data-value="{{item.value}}"> {{item.name}}
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+  </view>
+  <view class="cu-form-group cu-item ">
+    <view class="title">个人经历</view>
+  </view>
+  <view class="cu-form-group cu-item lastborder" style="border-top: 0rpx">
+  <view wx:if="{{flagDisabled}}">{{experience}}</view>
+    <textarea  wx:else name="experience" type="text" selectable="true" disabled="{{flagDisabled}}" placeholder="请描述关于您的信息以及荣誉经历" value="{{experience}}"></textarea>
+  </view>
+ 
+  <view class="top">
+    <button class="cu-btn lines-black button" bindtap="edit">编辑</button>
+    <button class="cu-btn lines-black button" form-type="submit">保存</button>
+  </view>
+
+</form> 
+
+<!-- 检查人员信息填写 -->
+<form wx:if="{{admin == 2 ? true : false}}" class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit3">
+  <view class="cu-form-group cu-item">
+    <view class="title">姓名</view>
+    <input name="uploaderName" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入姓名" value="{{uploaderName}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">项目</view>
+    <picker name="department" mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" disabled="{{flagDisabled}}"   value="{{multiIndex2}}" range="{{multiArray2}}">    
+      <view>{{showDepart?multiArray2[0][multiIndex2[0]]+" "+multiArray2[1][multiIndex2[1]]:"请选择项目"}}</view>
+    </picker>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">检查价格</view>
+    <input name="price" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入价格" value="{{price}}"></input>
+  </view>
+  <view class="cu-form-group cu-item">
+    <view class="title">工作时间</view>
+     <view class="action">
+    <button class="cu-btn bg-gray "  bindtap="showModal" data-target="ChooseModal">查看</button>
+  </view>
+    <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-red" bindtap="hideModal">取消</view>
+      <view class="action text-green" bindtap="hideModal">确定</view>
+    </view>
+    <view class="grid col-4 padding-sm" style="margin-bottom:100px;">
+      <view  wx:for="{{checkbox}}" class="padding-xs "  wx:key="{{index}}">
+        <button name="checkbox" value="{{item}}" class="cu-btn gray lg block {{item.checked?'bg-blue.light':'line-gray'}}" bindtap="{{flagDisabled?'':'ChooseCheckbox'}}" data-value="{{item.value}}"> {{item.name}}
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+  </view>
+  <view class="cu-form-group cu-item ">
+    <view class="title">个人经历</view>
+  </view>
+  <view class="cu-form-group cu-item lastborder" style="border-top: 0rpx">
+  <view wx:if="{{flagDisabled}}">{{experience}}</view>
+    <textarea  wx:else name="experience" type="text" selectable="true" disabled="{{flagDisabled}}" placeholder="请描述关于您的信息以及荣誉经历" value="{{experience}}"></textarea>
+  </view>
+ 
+  <view class="top">
+    <button class="cu-btn lines-black button" bindtap="edit">编辑</button>
+    <button class="cu-btn lines-black button" form-type="submit">保存</button>
+  </view>
+
+</form> 
+<!-- <form wx:if="{{admin == 2 ? true : false}}" class="cu-list card-menu sm-border margin-top" bindsubmit="formSubmit3">
+  <view class="cu-form-group cu-item lastborder">
+    <view class="title">姓名</view>
+    <input name="uploaderName" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入姓名" value="{{uploaderName}}"></input>
+  </view>
+  
+  <view class="top">
+    <button class="cu-btn lines-black button" bindtap="edit">编辑</button>
+    <button class="cu-btn lines-black button" form-type="submit">保存</button>
+  </view>
+
+</form>  -->

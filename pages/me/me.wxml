@@ -1,64 +1,48 @@
 <!--pages/me/me.wxml-->
-<view class="container"> 
-  <view class="remind-box" wx:if="{{false}}"> 
-    <image></image> 
-  </view> 
+<view class="container">
+  <view class="remind-box" wx:if="{{false}}">
+    <image></image>
+  </view>
   <block wx:else>
-    <image class="title" src="../../images/title.png"></image> 
-    <view class="content"> 
-      <view class="hd" style="transform:rotateZ(0deg);"> 
-        <button wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 
-        <image class="logoImage" src="../../images/BlueDoctor.png"></image> 
-        </button> 
-        <!-- <image class="img wave" src="../../images/wave.png" mode="aspectFill"></image> 
-        <image class="img wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image> --> 
-      </view> 
-      <!-- <view class="hd" style="transform:rotateZ(0deg);"> 
-        <button wx:if="{{false}}">点击授权 
-        </button> 
-        <image class="logo" wx:else src="../../images/BlueDoctor.png" ></image> 
-       <image class="wave" src="../../images/wave.png" mode="aspectFill"></image> 
-        <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image> 
-      </view> --> 
-      <view class="lists"> 
-          <view bindtap="onClick" data-index="1" class="item"> 
-            <image src="../../images/buyRecord.png" mode="scaleToFill" /> 
-            <text>就诊人信息</text> 
-            <view class="unRead" wx:if="{{unReadNum}}"> 
-              <text>{{unReadNum}}</text> 
-            </view>
-            <text class="arrow"></text> 
-          </view> 
-          <view bindtap="onClick" data-index="2" class="item"> 
-            <image src="../../images/buyRecord.png" mode="scaleToFill" /> 
-            <text>挂号记录</text> 
-            <view class="unRead" wx:if="{{unReadNum}}"> 
-              <text>{{unReadNum}}</text> 
-            </view> 
-            <text class="arrow"></text> 
-          </view> 
-          <view bindtap="onClick" data-index="3" class="item"> 
-            <image src="../../images/buyRecord.png" mode="scaleToFill" /> 
-            <text>体检项目记录</text> 
-            <text class="arrow"></text> 
-          </view> 
-          <button style="padding:0;" open-type="feedback"  class="item"> 
-            <image style="margin-left:20rpx;"src="../../images/feedback.png" mode="scaleToFill" /> 
-            <text>反馈</text> 
-            <text class="arrow"></text> 
-          </button> 
-          <!-- <view wx:if="{{isAdmin}}" bindtap="onClick" data-index="5" class="item"> 
-            <image src="" mode="scaleToFill" /> 
-            <text>管理员</text> 
-            <text class="arrow"></text> 
-          </view>  -->
-          <view bindtap="onClick" data-index="5" class="item2"> 
-            <image src="../../images/information.png" mode="scaleToFill" /> 
-            <text>关于</text> 
-            <text class="arrow"></text> 
-          </view> 
-          
-        </view> 
-    </view> 
-  </block> 
+    <image class="title" src="../../images/title.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ(0deg);">
+        <button wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <image class="logoImage" src="../../images/BlueDoctor.png"></image>
+        </button>
+      </view>
+      <view class="lists">
+        <view bindtap="onClick" data-index="1" class="item">
+          <image src="../../images/person.png" mode="scaleToFill" />
+          <text wx:if="{{admin == 0 ? true : false}}">就诊人信息</text>
+          <text wx:elif="{{admin == 1 ? true : false}}">医生信息</text>
+          <text wx:elif="{{admin == 2 ? true : false}}">上传者信息</text>
+          <text class="arrow"></text>
+        </view>
+        <view bindtap="onClick" data-index="2" class="item">
+          <image src="../../images/buyRecord.png" mode="scaleToFill" />
+          <text wx:if="{{admin == 0 ? true : false}}">挂号记录</text>
+          <text wx:elif="{{admin == 1 ? true : false}}">预约记录</text>
+          <text wx:elif="{{admin == 2 ? true : false}}">上传记录</text>
+          <text class="arrow"></text>
+        </view>
+        <view bindtap="onClick" data-index="3" wx:if="{{admin == 0 ? true : false}}" class="item">
+          <image src="../../images/buyRecord.png" mode="scaleToFill" />
+          <text>体检项目记录</text>
+          <text class="arrow"></text>
+        </view>
+        <button style="padding:0;" open-type="feedback" class="item">
+          <image style="margin-left:20rpx;" src="../../images/feedback.png" mode="scaleToFill" />
+          <text>反馈</text>
+          <text class="arrow"></text>
+        </button>
+        <view bindtap="onClick" data-index="4" class="item2">
+          <image src="../../images/information.png" mode="scaleToFill" />
+          <text>关于</text>
+          <text class="arrow"></text>
+        </view>
+
+      </view>
+    </view>
+  </block>
 </view>

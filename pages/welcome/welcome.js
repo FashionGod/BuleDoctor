@@ -9,55 +9,107 @@ Page({
     doctorFlag: false,
     uploaderFlag: false,
     admin: null,
-    remind:'加载中'
+    remind: '加载中',
+    show: false,
+    buttons: [
+      {
+        type: 'submit',
+        className: '',
+        text: '确认',
+        value: 1
+      }
+    ]
   },
 
-  
-  
+  open: function () {
+    this.setData({
+      show: true
+    })
+  },
+  buttontap(e) {
+    console.log(e.detail)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    this.getOpenid()
-    
-    console.log("firstBlood", wx.getStorageSync('firstBlood'))
-    //第一次进入小程序
-    if (!wx.getStorageSync('firstBlood')){
-      setTimeout(() => {
-        this.setData({
-          remind: ''
-        })
-      }, 2000)
-      wx.setStorageSync("firstBlood", true)
-    }
-    // 不是第一次进入小程序
-    else{
-      setTimeout(() => {
-        this.setData({
-          remind: ''
-        })
-      }, 2000)
-      console.log("firstBlood", wx.getStorageSync('firstBlood'))
-      wx.cloud.callFunction({
-        name:'getIdentity'
-      }).then(res=>{
-        this.setData({
-          admin: res.result.data.admin
-        })
-        console.log('admin',res)
-        app.globalData.admin = this.data.admin
-      }).then(res=>{
-        wx.switchTab({
-          url: '../home/home',
-        })
+
+  async judgeIfHaveIdentity() {
+    console.log(app.globalData.openid)
+    setTimeout(() => {
+      this.setData({
+        remind: ''
       })
-      console.log("firstBlood", wx.getStorageSync('firstBlood'))
+    }, 2000)
+    let a = await wx.cloud.callFunction({
+      name: 'judgeIfHaveIdentity',
+      data: {
+        openid: app.globalData.openid
+      }
+    })
+    //有无身份标识，为了在三个To函数中判断用
+    app.globalData.adminFlag = false
+    console.log("a.errcode",a.result)
+    if (a.result.data.data[0]!=null) {
+      app.globalData.adminFlag = true
+      //（有身份）
+      app.globalData.admin = a.result.data.data[0].admin
+      if (app.globalData.admin == 0) {
+        this.patientIdToHome()
+      } else if (app.globalData.admin == 1) {
+        this.doctorIdToHome()
+      } else if (app.globalData.admin == 2) {
+        this.uploderIdToHome()
+      }
+    } else if (a.result.data.data[0] == null) {
+      //（没身份）
+      console.log("数据库中没有身份")
     }
+  },
+  onLoad: function(options) {
+    this.getOpenid().then(res => {
+      this.judgeIfHaveIdentity()
+    })
+
+
+    // console.log("firstBlood", wx.getStorageSync('firstBlood'))
+    // //第一次进入小程序
+    // if (!wx.getStorageSync('firstBlood')) {
+    //   setTimeout(() => {
+    //     this.setData({
+    //       remind: ''
+    //     })
+    //   }, 2000)
+    //   wx.setStorageSync("firstBlood", true)
+    // }
+    // // 不是第一次进入小程序
+    // else {
+    //   setTimeout(() => {
+    //     this.setData({
+    //       remind: ''
+    //     })
+    //   }, 2000)
+    //   console.log("firstBlood", wx.getStorageSync('firstBlood'))
+    //   wx.cloud.callFunction({
+    //     name: 'getIdentity'
+    //   }).then(res => {
+    //     this.setData({
+    //       admin: res.result.data.admin
+    //     })
+    //     console.log('admin', res)
+    //     app.globalData.admin = this.data.admin
+    //   }).then(res => {
+    //     wx.switchTab({
+    //       url: '../home/home',
+    //     })
+    //   })
+    //   console.log("firstBlood", wx.getStorageSync('firstBlood'))
+    // }
 
 
 
   },
-  
+
   displayDoctor() {
     this.setData({
       doctorFlag: true,
@@ -89,8 +141,13 @@ Page({
     console.log('云函数获取到的openid: ', a.result.openId)
     app.globalData.openid = a.result.openId;
   },
-  async doctorIdToHome(){
-    await this.addIdentity()
+  async doctorIdToHome() {
+    if (app.globalData.adminFlag) {
+      //有身份就不加直接进
+    }
+    else {
+      await this.addIdentity()
+    }
     wx.switchTab({
       url: '../home/home',
       fail(err) {
@@ -102,8 +159,13 @@ Page({
       }
     })
   },
-  async uploderIdToHome(){
-    await this.addIdentity()
+  async uploderIdToHome() {
+    if (app.globalData.adminFlag) {
+      //有身份就不加直接进
+    }
+    else {
+      await this.addIdentity()
+    }
     wx.switchTab({
       url: '../home/home',
       fail(err) {
@@ -115,8 +177,13 @@ Page({
       }
     })
   },
-  async patientIdToHome(){
-    await this.addIdentity()
+  async patientIdToHome() {
+    if(app.globalData.adminFlag){
+      //有身份就不加直接进
+    }
+    else{
+      await this.addIdentity()
+    }
     wx.switchTab({
       url: '../home/home',
       fail(err) {
@@ -199,7 +266,7 @@ Page({
               //加权限为上传者
               app.globalData.admin = 2
               that.uploderIdToHome()
-                
+
 
             } else {
               wx.showModal({

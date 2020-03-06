@@ -2,28 +2,27 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  env:'work-aznu0'
+  env: 'work-aznu0'
 })
 const db = cloud.database()
 var mess = {}
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  try{
-    return db.collection("PatientInfo").where({
-        _id:event.openid
-      }).count().then(res =>{
-      if(res.total<=0){
+  try {
+    return db.collection("DoctorInfo").where({
+      _id: event.openid
+    }).count().then(res => {
+      if (res.total <= 0) {
         return mess.code = -1
       }
-      else
-      {
+      else {
         mess.code = 0
-        return mess = db.collection('PatientInfo').doc(event.openid).get()
+        return mess = db.collection('DoctorInfo').doc(event.openid).get()
       }
     })
-  }catch(e){
+  } catch (e) {
 
   }
-  
+
 }

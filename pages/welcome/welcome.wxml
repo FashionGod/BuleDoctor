@@ -1,16 +1,49 @@
-<view class="remind-box" wx:if="{{remind}}">
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
     <image class="remind-img" src="/images/loading.gif"></image>
-</view>
-<view wx:else>
-<button bindtap="toNext" style="background-color:red">
+  </view>
+  <block wx:else>
+    <image class="title" src="../../images/title.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ(0deg);">
+        <!-- <image class="logo" src="{{userInfo.avatarUrl}}"></image> -->
+        <image class="wave" src="../../images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <image class="smalltitle" src="../../images/smalltitle.png"></image>
+        <button class="confirm-btn" bindtap="toNext">
+          进入蓝医先生
+        </button>
+        <view class="passwordInput" wx:if="{{doctorFlag||uploaderFlag}}">
+        <form bindsubmit="toDoctor" wx:if="{{doctorFlag}}" style="z-index:50;" >
+  <view class="keying">
+  <input class="input" placeholder="请输入医生密码" type="password" name="doctor"></input>
+  <button  formType="submit" wx:if="{{doctorFlag}}" >确定</button>
+  </view>
+</form>
+<form bindsubmit="toUploader" wx:if="{{uploaderFlag}}" style="z-index:50;">
+  <view class="keying">
+  <input class="input" placeholder="请输入上传人员密码" type="password"  name="uploader"></input>
+  <button formType="submit" wx:if="{{uploaderFlag}}">确定</button>
+  </view>
+</form> 
+        </view>
+        <view class="copyright">@蓝医先生团队</view>
+      </view>
+      <view style="display:flex;margin:0 auto 20rpx;">
+    <button class="doctorLoad" bindtap="displayDoctor" >医生登录</button>
+    <button class="uploaderLoad" bindtap="displayUploader" >上传人员登录</button>
+    </view>
+    </view>
+    
+
+
+  </block>
+  <!-- <button bindtap="toNext" style="background-color:red">
   用户登录</button>
 
-<form bindsubmit="toDoctor">
 
-  <button bindtap="displayDoctor" style="background-color:blue">医生登录</button>
-  <input placeholder="请输入医生密码" type="password" wx:if="{{doctorFlag}}" name="doctor"></input>
-  <button formType="submit" wx:if="{{doctorFlag}}" style="background-color:pink">确定</button>
-</form>
 
 <form bindsubmit="toUploader">
 
@@ -18,5 +51,11 @@
   <button bindtap="displayUploader" style="background-color:green">上传人员登录</button>
   <input placeholder="请输入上传人员密码" type="password" wx:if="{{uploaderFlag}}" name="uploader"></input>
   <button formType="submit" wx:if="{{uploaderFlag}}" style="background-color:pink">确定</button>
-</form>
+</form> -->
+
+
+
+  <!--miniprogram/pages/start/start.wxml-->
+
+
 </view>

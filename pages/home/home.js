@@ -21,17 +21,19 @@ Page({
       admin:app.globalData.admin
     })
   },
-  ToRegistration(){
+  toRegistration(){
     wx.navigateTo({
-      url: '../home/quickRegister/quickRegister?id=0',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '../home/quickRegister/quickRegister'
+    })
+  },
+  toOrderRecord(){
+    wx.navigateTo({
+      url: '../me/orderRecord/orderRecord'
     })
   },
   toPickSelf(){
     wx.navigateTo({
-      url: '../home/pickSelf/pickSelf?id=1',
+      url: '../home/pickSelf/pickSelf'
     })
   },
   onShow:function(){

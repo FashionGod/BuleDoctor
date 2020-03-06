@@ -1,0 +1,21 @@
+/* pages/me/orderRecord/orderRecord.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.card{
+  margin: 15rpx 30rpx;
+  height: 300rpx;
+  background: white;
+  padding: 15rpx;
+  border: 25rpx solid #4d9bf4b6;
+  box-shadow: 3px 3px 3px #4d9bf486;
+  border-radius: 30rpx;
+}
+
+/* #4d9bf4
+
+#4d9bf486 */
