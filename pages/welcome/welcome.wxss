@@ -19,7 +19,12 @@ display: inline-block;
 position: absolute;
 left: 9rpx;
 margin-top: 5rpx;
+padding-left: 28rpx;
+}
 
+.inputPlaceholderStyle {
+  font-size: 12px;
+  margin-left: 10rpx;
 }
 
 .keying button {
@@ -315,5 +320,6 @@ page {
   left: 0;
   right: 0;
   padding: 30rpx;
+  margin-bottom: 10px;
   text-align: center;
 }

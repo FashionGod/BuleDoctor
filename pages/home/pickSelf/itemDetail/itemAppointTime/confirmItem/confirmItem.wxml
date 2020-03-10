@@ -31,8 +31,8 @@
       <image class="patientInformationImg" src="../../../../../../images/patient.png"></image>    
     <!-- </view> -->
     <view class="patientInformationTxtBox">
-      <view class="patientName">费吕宗</view>
-      <view class="patientMedicalCardNumber">HC08223727</view>
+      <view class="patientName">{{patientInfo.name}}</view>
+      <!-- <view class="patientMedicalCardNumber">HC08223727</view> -->
     </view>
   </view>
 <!-- 提交按钮   -->

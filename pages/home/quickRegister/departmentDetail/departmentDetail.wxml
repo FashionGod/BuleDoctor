@@ -47,27 +47,57 @@ wx:key>
 wx:for="{{weekDate}}"
 wx:key>
 <!-- 挂号的圆圈 -->
-<view class='style {{item.id==num?"circleRegister":""}} style {{item.id==num2?"haveRegister2":""}}'
+<view class='style {{item.id==num?"circleRegister":""}} style {{doctorsWorkFlag[item.id]==false?"haveRegister2":""}}'
 data-circleregister="{{index}}"
 bindtap="onCircleRegister">
 {{item.date}}
-<view class='style {{item.id==num2?"haveRegister":""}}'>有号</view>
+<view class='style {{doctorsWorkFlag[item.id]==false?"haveRegister":""}}'>有号</view>
 </view><!-- 挂号的圆圈结束 -->
 </view>
 </view> <!-- 星期几的日期结束 -->
 </view><!-- 星期布局结束 -->
 
-<!-- 医生布局 -->
-<view class="doctorBox clearfix"
-    >
-  <view class="doctorLeft">
-    <image class="doctorImg" src="../../../../images/doctor.png"></image>
-    <view class="doctorName">平诊</view>
-  </view>
-  <view class="doctorRight">
-    <view class="moreNumber">余号:12</view>
-    <view class="price">￥8.00</view>
-  </view>
-</view>
+<!-- 按日期挂号布局 -->
+<view wx:for="{{doctors[num]}}"
+      wx:key
+      wx:if="{{registerFlag}}">
+  <view bindtap="toItemAppointTime" 
+        data-doctorname="{{item.doctorName}}"
+        class='doctorBox clearfix style {{item.moreRegisterList[num]==0?"doctorBind":""}}'>    
+    <view class="doctorLeft">
+      <image class="doctorImg" src="../../../../images/doctor.png"></image>
+      <view class="doctorName">{{item.doctorName}}</view>
+    </view>
+      <view class="doctorRight">
+        <view class='moreNumber'
+              style='background-color:{{item.moreRegisterList[num]==0?"gray":""}}' >余号:{{item.moreRegisterList[num]}}
+        </view>
+        <view class="price"
+             style='background-color:{{item.moreRegisterList[num]==0?"gray":""}}'>￥{{item.price}}
+        </view>
+      </view>
+    </view>
+</view><!-- 按日期挂号布局结束 -->
 
+<!-- 按医生挂号布局 -->
+<view wx:for="{{doctorsDepartment}}"
+      wx:key
+      bindtap="toItemAppointTime"
+      data-doctorname="{{item.doctorName}}"
+      wx:if="{{!registerFlag}}">
+  <view class="doctorBox clearfix">    
+    <view class="doctorLeft">
+      <image class="doctorImg" src="../../../../images/doctor.png"></image>
+      <view class="doctorName">{{item.doctorName}}</view>
+    </view>
+  </view>
+</view><!-- 按医生挂号布局结束 -->
+
+
+<view class="search_no" 
+        wx:if="{{nodoctors}}">
+    <image class="search_Picture" 
+           src="../../../../images/ktp.png"></image>
+    <text class="search_Text">暂未获取到医生信息/(ㄒoㄒ)/~~</text>
+</view>
 </view><!-- 背景结束 -->

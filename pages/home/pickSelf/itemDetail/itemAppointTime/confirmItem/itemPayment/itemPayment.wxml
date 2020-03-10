@@ -1,5 +1,5 @@
 <!-- 背景 -->
-<form class="background" bindsubmit="submitInfo">
+<view class="background" bindsubmit="submitInfo">
   <!-- 锁号倒计时 -->
   <view class="countDownBox">
     <view class="countDownMain">请在{{wxTimer}}内完成支付</view>
@@ -28,7 +28,7 @@
   <!-- 就诊日期 -->
   <view class="box2 clearfix">
     <view class="boxLeft">就诊日期</view>
-    <view class="boxRight" name="date">{{seeTime1}} {{weekDate}}</view>
+    <view class="boxRight">{{seeTime1}} 周{{weekDate}}</view>
   </view>
   <!-- 就诊时段 -->
   <view class="box2 clearfix">
@@ -38,13 +38,13 @@
   <!-- 就诊人 -->
   <view class="box2 clearfix">
     <view class="boxLeft">就诊人</view>
-    <view class="boxRight" name="patientName">费吕宗</view>
+    <view class="boxRight">{{patientInfo.name}}</view>
   </view>
   <!-- 就诊卡号 -->
   <view class="box2 clearfix">
     <view class="boxLeft">就诊卡号</view>
-    <view class="boxRight" name="patientNumber">HC08223727</view>
+    <view class="boxRight">{{patientInfo.sickNumber}}</view>
   </view>
   <!-- 支付按钮 -->
-  <button class="confirmButton" form-type="submit" >微信支付</button>
-</form>
+  <button class="confirmButton" bindtap="uploadOrderInfo">微信支付</button>
+</view>

@@ -18,13 +18,23 @@
         <view class="passwordInput" wx:if="{{doctorFlag||uploaderFlag}}">
         <form bindsubmit="toDoctor" wx:if="{{doctorFlag}}" style="z-index:50;" >
   <view class="keying">
-  <input class="input" placeholder="请输入医生密码" type="password" name="doctor"></input>
+  <input class="input" 
+         placeholder="请输入医生密码" 
+         placeholder-class="inputPlaceholderStyle" 
+         type="password" 
+         name="doctor"></input>
   <button  formType="submit" wx:if="{{doctorFlag}}" >确定</button>
   </view>
 </form>
 <form bindsubmit="toUploader" wx:if="{{uploaderFlag}}" style="z-index:50;">
   <view class="keying">
-  <input class="input" placeholder="请输入上传人员密码" type="password"  name="uploader"></input>
+  <input class="input" 
+         placeholder="请输入上传人员密码" 
+         cursor="10px"
+         type="password"  
+         name="uploader"
+         placeholder-class="inputPlaceholderStyle">  
+  </input>
   <button formType="submit" wx:if="{{uploaderFlag}}">确定</button>
   </view>
 </form> 

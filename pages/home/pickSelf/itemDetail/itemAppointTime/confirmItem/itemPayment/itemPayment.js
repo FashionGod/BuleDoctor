@@ -12,8 +12,20 @@ Page({
   data: {
     wxTimerList: {},
   },
-  submitInfo(e) {
-    console.log(e)
+  uploadOrderInfo() {
+    wx.cloud.callFunction({
+      name: 'uploadOrderChecker',
+      data: {
+        "openid": app.globalData.openid,
+        "date": this.data.seeTime1,
+        "registerlistId": this.data.registerlistId,
+        "docName": this.data.doctor.doctorName,
+        "doctorNumber": this.data.doctor.doctorNumber,
+        "patientName": this.data.patientInfo.name,
+        "patientNumber": this.data.patientInfo.sickNumber,
+        "payTime": this.data.seeTime2.time,
+      }
+    })  
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,11 +34,14 @@ Page({
     console.log(options)
     let doctor = JSON.parse(options.doctor);
     let seeTime2 = JSON.parse(options.seeTime2);
+    let patientInfo = JSON.parse(options.patientInfo);
     this.setData({
       doctor: doctor,
       seeTime1: options.seeTime1,
       seeTime2: seeTime2,
       weekDate: options.weekDate,
+      patientInfo: patientInfo,
+      registerlistId: options.registerlistId,
     })
     wxTimer.calibration()
     wxTimer.start(this);

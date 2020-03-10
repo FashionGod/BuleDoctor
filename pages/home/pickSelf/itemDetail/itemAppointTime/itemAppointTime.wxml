@@ -34,15 +34,15 @@
   </view> <!-- 上左布局结束 -->
 
   <!-- 上右布局 -->
-  <view class="top_right">
+  <view class="top_right"
+        bindtap="onTriangle">
       <!-- 圆圈 -->
         <view class="circle">
          <!-- 三角形 -->
           <view class="tiangle" 
-                style="top:{{top}}px;border-top: 5px solid {{triangleColor1}}; border-bottom: 5px solid {{triangleColor2}};" 
-                bindtap="onTriangle"></view>
+                style="top:{{top}}px;border-top: 5px solid {{triangleColor1}}; border-bottom: 5px solid {{triangleColor2}};"></view>
       </view> <!-- 圆圈结束 -->
-        <view class="top_right-txt" bindtap="onTriangle">更多日期</view>
+        <view class="top_right-txt">更多日期</view>
     </view><!-- 上右布局结束 -->
   </view><!-- 最上面的布局结束 -->
 

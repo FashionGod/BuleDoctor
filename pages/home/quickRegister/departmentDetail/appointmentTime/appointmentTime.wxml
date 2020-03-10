@@ -7,18 +7,26 @@
       <!-- 图片 -->
       <image class="docImg"       
              src="../../../../../images/BlueDoctor.png"></image>
-        <!-- 文字 -->
-        <view class="docText">{{departmentName}}</view>
+             <view class="docAndDepartment">
+                <!-- 医生文字 -->
+                <view class="docText">{{doctor.doctorName}}</view>     
+                <!-- 部门文字 -->
+                <view class="departmentText">{{doctor.department}}</view>
+             </view>
+        
     </view><!-- 图片和文字结束 -->
     <!-- 挂号文字 -->
-    <view class="top_botton">
-      <view class="top_botton_txt">挂号</view>
+    <view class="top_botton clearfix">
+      <view class='top_bottonleft_txt style {{selectFlag1==true?"onSelect":""}} '
+            bindtap="onSelect1">挂号</view>
+      <view class='top_bottonright_txt style {{selectFlag2==true?"onSelect":""}} '
+            bindtap="onSelect2">介绍</view>
     </view>
   </view><!-- 上面布局结束 -->
 
 <!-- 搬过来的 -->
 <!-- 最上面的布局 -->
-<view class="top clearfix">
+<view class="top clearfix" wx:if="{{selectFlag1}}">
   <!-- 上左布局 -->
   <view class="top_left">
     <!-- 时间 -->
@@ -51,24 +59,26 @@
     <view class="weekLeft">
       <view class="weekDate"
           wx:for="{{weekDate}}"
-          wx:key>
+          wx:key
+          >
           <!-- 挂号的圆圈 -->
-          <view class='style {{item.id==num?"circleRegister":""}} style {{item.id==num2?"haveRegister2":""}}'
+          <view class='style {{item.id==num?"circleRegister":""}} style {{doctorWorkFlag[item.id]==false?"haveRegister2":""}}'
                 data-circleregister="{{index}}"
                 bindtap="onCircleRegister">
                 {{item.date}}
-                <view class='style {{item.id===num2?"haveRegister":""}}'>有号</view>
+                <view class='style {{doctorWorkFlag[item.id]==false?"haveRegister":""}}'>有号</view>
           </view><!-- 挂号的圆圈结束 -->
       </view>
     </view> <!-- 星期几的日期结束 -->
 </view><!-- 星期布局结束 -->
 
 <!-- 号的列表 -->
-<scroll-view class="listbgc"
-             wx:for="{{registerList}}"
-             wx:key
+<view wx:for="{{registerList}}"
+      wx:key>
+<scroll-view class='listbgc style {{item.price == "已无号"?"listbgcNone":""}} '
              data-id="{{index}}"
-             bindtap="onListItem">
+             bindtap="onListItem"
+             wx:if="{{selectFlag1}}">
   <!-- 列表 -->
   <view class="list">
     <!-- 列表左边 -->
@@ -81,12 +91,34 @@
       <!-- 列表右边 -->
       <view class="listRight">
         <!-- 钱 -->
-        <view class="money">{{item.price}}</view>
+        <view class=' style {{item.price == "已无号"?"noMoreRegister":"money"}} ' >{{item.price}} {{item.id}}</view>
         <!-- 箭头 -->
-        <view class="arrow"></view>
+        <view class="arrow" wx:if='{{item.price != "已无号"}}'></view>
       </view><!-- 列表右边结束 -->
   </view><!-- 列表结束 -->
 </scroll-view><!-- 号的列表结束 -->
+</view>
 
+<view class="docInf" wx:if="{{selectFlag2==true}}">
+  <view class="docIntroductionBox">
+    <view class="docIntroduction">介绍</view>
+    <view class="docIntroductionContent">
+      <view>姓名：{{doctor.doctorName}}</view>
+      <view>职称：{{doctor.jobTitle}}</view>
+      <view>专业：{{doctor.major}}</view>
+      <view class="workTime">
+        出诊时间： 
+        <view wx:for="{{workTime}}" wx:key>周{{item}}、</view>
+      </view>
+      <view>个人经历：{{doctor.personalExperience}}</view>
+    </view>
+  </view>
+</view>
 
+<view class="search_no" 
+        wx:if="{{num==-1}}">
+    <image class="search_Picture" 
+           src="../../../../../images/ktp.png"></image>
+    <text class="search_Text">暂未获取到医生信息/(ㄒoㄒ)/~~</text>
+</view>
 </view><!-- 背景结束 -->

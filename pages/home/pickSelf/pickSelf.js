@@ -12,9 +12,25 @@ Page({
     flag0:true
   },
   ItemDetail(e) {
-    let departmentName = this.data.list[this.data.TabCur].items[e.currentTarget.dataset.itemsid];
+    let departmentName = this.data.list[this.data.TabCur].items
+    [e.currentTarget.dataset.itemsid];
+    let departmentName1 = -1;
+    let departmentName2 = -1;
+    for(i in this.data.list) {
+      for (j in this.data.list[i].items) {
+        if (this.data.list[i].items[j] == departmentName) {
+          departmentName1 = i;
+          departmentName2 = j;
+        }
+      }
+      
+    }
+    console.log(this.data.list)
     wx.navigateTo({
-      url: 'itemDetail/itemDetail?departmentName=' + departmentName,
+      url: 'itemDetail/itemDetail?departmentName=' + departmentName +
+        '&departmentName1=' + departmentName1 +
+        '&departmentName2=' + departmentName2 
+      ,
     })
   },
   focus0()

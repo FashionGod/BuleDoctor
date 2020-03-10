@@ -99,58 +99,53 @@ Page({
     order: [//订单
       {
         orderNumber: "0",
-        date: "2020-3-6",
+        date: "2020-3-10",
         registerlistId: 1,
         docName: "平诊",
         doctorNumber: "0",
         patientName: "flz",
         patientNumber: "3",
         payTime: "14:30",
-        payState: true,
       },
       {
         orderNumber: "1",
-        date: "2020-3-6",
+        date: "2020-3-10",
         registerlistId: 0,
         docName: "平诊",
         doctorNumber: "0",
         patientName: "flz",
         patientNumber: "3",
         payTime: "14:30",
-        payState: true,
       },
       {
         orderNumber: "2",
-        date: "2020-3-7",
+        date: "2020-3-10",
         registerlistId: 2,
         docName: "平诊",
         doctorNumber: "0",
         patientName: "flz",
         patientNumber: "3",
         payTime: "14:30",
-        payState: true,
       },
       {
         orderNumber: "3",
-        date: "2020-3-6",
+        date: "2020-3-10",
         registerlistId: 10,
         docName: "平诊",
         doctorNumber: "0",
         patientName: "flz",
         patientNumber: "3",
         payTime: "14:30",
-        payState: true,
       },
       {
         orderNumber: "4",
-        date: "2020-3-6",
-        registerlistId: 40,
+        date: "2020-3-11",
+        registerlistId: 3,
         docName: "平诊",
         doctorNumber: "0",
         patientName: "flz",
         patientNumber: "3",
         payTime: "14:30",
-        payState: true,
       },
       {
         orderNumber: "5",
@@ -161,7 +156,6 @@ Page({
         patientName: "flz",
         patientNumber: "3",
         payTime: "14:30",
-        payState: true,
       }
       ]
   },
@@ -239,15 +233,11 @@ Page({
       }
     } 
     console.log(this.data.doctorWorkFlag)
-    let doctorWorkFlag2 = [];
-    for (i in this.data.doctorWorkFlag) {
-      doctorWorkFlag2[i] = this.data.doctorWorkFlag[i];
-    }
     // 获取今天的号源
     //处理订单
     let order = this.data.order;
     this.data.registerList = [];
-    // dateTemp.setHours(12)
+    // dateTemp.setHours(14)
     for (let item of this.data.registerListTemp) {
       if (item.time > dateTemp.toTimeString()) {
         this.data.registerList.push(item);
@@ -282,12 +272,17 @@ Page({
           } 
         }
         console.log(this.data.doctorWorkFlag)
-        for (i in this.data.doctorWorkFlag) {
-          if (this.data.doctorWorkFlag[i] == true) {
-            this.data.num = i; //四点后设置this.data.num
-            break;
+        if (options.registerFlag == "false") {
+          for (i in this.data.doctorWorkFlag) {
+            if (this.data.doctorWorkFlag[i] == true) {
+              this.data.num = i; //四点后设置this.data.num
+              break;
+            }
           }
+        } else {
+          this.data.num = options.num;
         }
+        console.log("1111111")
         for (i in this.data.registerListTemp) {
           this.data.registerList[i] = this.data.registerListTemp[i];//当天四点后展示下一天的 
         }  
@@ -306,12 +301,17 @@ Page({
         }
 
       }
-    } else {//四点hou设置this.data.num
-      for (i in this.data.doctorWorkFlag) {
-        if (this.data.doctorWorkFlag[i] == true)
-        break;
+    } else {//四点后设置this.data.num
+      if(options.registerFlag == "true") {
+        this.data.num = options.num;
+      } else {
+        for (i in this.data.doctorWorkFlag) {
+          if (this.data.doctorWorkFlag[i] == true)
+            break;
+        }
+        this.data.num = i;
+        console.log(this.data.num);
       }
-      this.data.num = i;
       // console.log(this.data.registerList)
       // console.log(weekDate)
       numTemp = this.data.num;
@@ -319,25 +319,64 @@ Page({
                       weekDate[numTemp].month + "-" + 
                       weekDate[numTemp].date ;
       // console.log(this.data.num)
-      for (i in this.data.registerList) {//当天四点前设置已无号
-        for (j in order) {
-          if (order[j].date == orderDate &&
-             (order[j].payTime >= dateTemp.toTimeString()) &&
-             (order[j].doctorNumber == doctor.doctorNumber)
-             ) {
-            if (this.data.registerListTemp[order[j].registerlistId].time >= dateTemp.toTimeString()) {
-              console.log(order[j].registerlistId)
-              if (this.data.registerList[i].id == order[j].registerlistId) {
-                this.data.registerList[i].price = "已无号";
-                break;
-              } 
+      if(options.registerFlag == "true") {
+        //当天
+        if (options.itemDetailCur == "true") {
+          for (i in this.data.registerList) {//当天四点前设置已无号
+            for (j in order) {
+              if (order[j].date == orderDate &&
+                (order[j].payTime >= dateTemp.toTimeString()) &&
+                (order[j].doctorNumber == doctor.doctorNumber)
+              ) {
+                if (this.data.registerListTemp[order[j].registerlistId].time >= dateTemp.toTimeString()) {
+                  console.log(order[j].registerlistId)
+                  if (this.data.registerList[i].id == order[j].registerlistId) {
+                    this.data.registerList[i].price = "已无号";
+                    break;
+                  }
+                }
+              }
             }
-             }
+          }
+        } else {//非当天
+          this.data.registerList = this.data.registerListTemp;
+          for (i in this.data.registerList) {//四点前设置已无号
+            console.log(order[j].doctorNumber)
+            // console.log(doctor.doctorNumber)
+            for (j in order) {
+              // console.log(order[j])
+              // console.log(doctor)
+              if (order[j].date == orderDate &&
+                order[j].doctorNumber == doctor.doctorNumber) {
+                this.data.registerList[order[j].registerlistId].price = "已无号";
+              }
+            }
+          }
+        }
+        
+        console.log(this.data.num)
+        console.log("111")
+      } else {
+        for (i in this.data.registerList) {//当天四点前设置已无号
+          for (j in order) {
+            if (order[j].date == orderDate &&
+              (order[j].payTime >= dateTemp.toTimeString()) &&
+              (order[j].doctorNumber == doctor.doctorNumber)
+            ) {
+              if (this.data.registerListTemp[order[j].registerlistId].time >= dateTemp.toTimeString()) {
+                console.log(order[j].registerlistId)
+                if (this.data.registerList[i].id == order[j].registerlistId) {
+                  this.data.registerList[i].price = "已无号";
+                  break;
+                }
+              }
+            }
+          }
         }
       }
       
     } 
-
+    
     //根据this.data.num设置当前日期
     let curdate = '';
     if(this.data.num != -1) {
@@ -359,7 +398,6 @@ Page({
       workTime: workTime,
       doctorWorkFlag: this.data.doctorWorkFlag,
       weekDate: weekDate,
-      doctorWorkFlag2: doctorWorkFlag2,
       now: now,
       nowNum: this.data.num,
     })
@@ -394,7 +432,7 @@ Page({
     })
     let id = e.currentTarget.dataset.circleregister;
     let dateTemp = new Date();
-    // dateTemp.setHours(12)
+    // dateTemp.setHours(14)
     let order = this.data.order;
     let numTemp = this.data.num;
     let orderDate = this.data.weekDate[id].year + "-" +
@@ -463,6 +501,7 @@ Page({
     
     let id = e.currentTarget.dataset.id;
     console.log(id)
+    let registerlistId = this.data.registerList[id].id;
     let doctor = JSON.stringify(this.data.doctor);
     let seeTime2 = JSON.stringify(this.data.registerList[id]);
     wx.navigateTo({
@@ -470,7 +509,8 @@ Page({
       '&doctor=' + doctor +
       '&weekDate=' + this.data.week[this.data.num] +
       '&seeTime1=' + this.data.date +
-      '&seeTime2=' + seeTime2
+      '&seeTime2=' + seeTime2 +
+      '&registerlistId=' + registerlistId
       ,
     })
   },
@@ -497,7 +537,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
-    
   },
 
   /**
