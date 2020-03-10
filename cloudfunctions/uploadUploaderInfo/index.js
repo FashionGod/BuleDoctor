@@ -18,11 +18,11 @@ exports.main = async (event, context) => {
     await db.collection('UploaderInfo').add({
       data: {
         _id: event.openid,
-        uploaderNumber: b.total + 1,
+        uploaderNumber: ''+(b.total + 1),
         uploaderName: event.uploaderName,
         department: event.department,
         price: event.price,
-        worktime: event.worktime,
+        workTime: event.worktime,
         personalExperience: event.experience,
         jobTitle:'',
         major:'',
@@ -36,7 +36,7 @@ exports.main = async (event, context) => {
         uploaderName: event.uploaderName,
         department: event.department,
         price: event.price,
-        worktime: event.worktime,
+        workTime: event.worktime,
         personalExperience: event.experience,
         jobTitle: '',
         major: '',

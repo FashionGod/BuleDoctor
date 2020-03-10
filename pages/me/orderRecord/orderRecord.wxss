@@ -7,13 +7,23 @@ page{
 }
 
 .card{
-  margin: 15rpx 30rpx;
-  height: 300rpx;
-  background: white;
+  margin: 35rpx 50rpx;
+  background: linear-gradient(to top left,rgba(0, 162, 255, 0.534),#6daffa71);
   padding: 15rpx;
-  border: 25rpx solid #4d9bf4b6;
-  box-shadow: 3px 3px 3px #4d9bf486;
-  border-radius: 30rpx;
+  box-shadow: 5px 5px 5px #4d9bf4c7;
+  border-radius: 20rpx;
+}
+
+
+
+.card view{
+  font-size: 13pt;
+}
+
+.title{
+  font-weight: 550;
+  font-size: 13pt;
+  line-height: 30px;
 }
 
 /* #4d9bf4

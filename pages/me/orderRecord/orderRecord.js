@@ -6,8 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    searchLoading: false, //"上拉加载"的变量，默认false，隐藏
-    searchLoadingComplete: false, //“没有数据”的变量，默认false，隐藏
+    cardList:[],
+    dutyName:'',
+    department:'',
+    time:'',
+    parientDescribe:'',
+    // searchLoading: false, //"上拉加载"的变量，默认false，隐藏
+    // searchLoadingComplete: false, //“没有数据”的变量，默认false，隐藏
   },
 
   /**
@@ -17,7 +22,34 @@ Page({
     this.setData({
       admin:app.globalData.admin
     })
+    console.log(app.globalData.userNumber==null)
+    if (app.globalData.userNumber==null){
+
+    }
+    else{
+      wx.cloud.callFunction({
+        name: 'getRecord',
+        data:{
+          userNumber:app.globalData.userNumber,
+          admin:app.globalData.admin
+        }
+      }).then(res=>{
+        console.log(res.result)
+        this.setData({
+          cardList:res.result.list
+        })
+      })
+    }
     console.log(this)
+  },
+  gotoDetail:function(e){
+    console.log(e.currentTarget.dataset.index)
+    wx.navigateTo({
+      url: '../orderRecordDetail/orderRecordDetail?index=' + e.currentTarget.dataset.index,
+      success: function (res) { console.log(res)},
+      fail: function(res) {console.log(res)},
+      complete: function (res) { console.log(res)},
+    })
   },
 
   /**
@@ -58,42 +90,42 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  // onReachBottom: function () {
 
-    var self = this;
-    // 原程序
-    var app = getApp();
-    // 触发加载中效果
-    self.setData({
-      searchLoading: true,
-      searchLoadingComplete: true
-    })
-    // 案例详情
-    // 页数 +1
-    page++
-    // 设计师信息
-    wx.request({
-      url: 'https://xcx.xxx.com.cn/homeapi/xxxx?page=' + page, //接口地址
-      data: {
+  //   var self = this;
+  //   // 原程序
+  //   var app = getApp();
+  //   // 触发加载中效果
+  //   self.setData({
+  //     searchLoading: true,
+  //     searchLoadingComplete: true
+  //   })
+  //   // 案例详情
+  //   // 页数 +1
+  //   page++
+  //   // 设计师信息
+  //   wx.request({
+  //     url: 'https://xcx.xxx.com.cn/homeapi/xxxx?page=' + page, //接口地址
+  //     data: {
 
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
-      success: function (res) {
-        // console.log(res);
-        // 案例详情
-        self.setData({
-          // 渲染数据
-          design: res.data,
-          //隐藏加载中效果
-          searchLoading: false,
-          searchLoadingComplete: false
-        })
-      }
-    })
-  },
+  //     },
+  //     header: {
+  //       'content-type': 'application/json' // 默认值
+  //     },
+  //     method: 'GET',
+  //     success: function (res) {
+  //       // console.log(res);
+  //       // 案例详情
+  //       self.setData({
+  //         // 渲染数据
+  //         design: res.data,
+  //         //隐藏加载中效果
+  //         searchLoading: false,
+  //         searchLoadingComplete: false
+  //       })
+  //     }
+  //   })
+  // },
 
   /**
    * 用户点击右上角分享

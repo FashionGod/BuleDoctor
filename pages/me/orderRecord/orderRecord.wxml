@@ -1,42 +1,52 @@
 <!--pages/me/orderRecord/orderRecord.wxml-->
-<text wx:if="{{admin==0}}">患者挂号记录</text>
-<text wx:elif="{{admin==1}}">医生记录</text>
-<text wx:elif="{{admin==2}}">上传者记录</text>
 
-<scroll-view>
-<view class="card"> 
-  <view>姓名</view>
-  <view>挂号部门：神经科  神经内科</view>
+<view wx:if="{{admin==0}}">
+  <block wx:for="{{cardList}}" wx:key>
+    <view class="card" wx:for-index="key" data-id="{{key}}" bindtap="gotoDetail">
+      <view>
+        <text class="title">挂号部门：</text>{{department}}</view>
+      <view>
+        <text class="title">就诊医生：</text>{{item.docName}}</view>
+      <view>
+        <text class="title">挂号时间：</text>{{item.date}} {{item.payTime}}</view>
+      <view>
+        <text class="title">费用：</text>{{item.orderNumber}}</view>
+    </view>
+  </block>
 </view>
-<view class="card"> 
-  
+<view wx:elif="{{admin==1}}">
+  <block wx:for="{{cardList}}" wx:key>
+    <view class="card" wx:for-index="key" data-id="{{key}}" bindtap="gotoDetail">
+      <view>
+        <text class="title">挂号部门：</text>{{department}}</view>
+      <view>
+        <text class="title">就诊医生：</text>{{item.docName}}</view>
+      <view>
+        <text class="title">挂号时间：</text>{{item.date}} {{item.payTime}}</view>
+      <view>
+        <text class="title">费用：</text>{{item.orderNumber}}</view>
+    </view>
+  </block>
 </view>
-<view class="card"> 
-  
+<view wx:elif="{{admin==2}}">
+  <block wx:for="{{cardList}}" wx:key>
+    <view class="card" wx:for-index="index" data-index="{{index}}" bindtap="gotoDetail">
+      <view>
+        <text class="title">体检项目：</text>{{department}}</view>
+      <view>
+        <text class="title">医生姓名：</text>{{item.docName}}</view>
+      <view>
+        <text class="title">检查时间：</text>{{item.date}} {{item.payTime}}</view>
+      <view>
+        <text class="title">费用：</text>{{item.orderNumber}}</view>
+    </view>
+  </block>
 </view>
-<view class="card"> 
-  
-</view>
-<view class="card"> 
-  
-</view>
-<view class="card"> 
-  
-</view>
-</scroll-view>
-<view class="weui-loadmore" hidden="{{!searchLoading}}">
+<!-- <view class="weui-loadmore" hidden="{{!searchLoading}}">
   <view class="weui-loading"></view>
   <view class="weui-loadmore__tips">正在加载</view>
 </view>
 <view class="weui-loadmore weui-loadmore_line" hidden="{{!searchLoadingComplete}}">
   <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已加载全部</view>
 </view>
-
-
-<!-- <scroll-view wx:elif="{{admin==1}}">
-
-</scroll-view>
-<scroll-view wx:elif="{{admin==0}}">
-
-</scroll-view> -->
-
+ -->

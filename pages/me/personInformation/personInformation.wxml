@@ -41,18 +41,20 @@
   <view class="cu-form-group cu-item">
     <view class="title">系别</view>
     <picker name="department" mode="multiSelector" bindchange="bindMultiPickerChange1" bindcolumnchange="bindMultiPickerColumnChange1" disabled="{{flagDisabled}}"   value="{{multiIndex1}}" range="{{multiArray1}}">    
-      <view>{{showDepart?multiArray1[0][multiIndex1[0]]+" "+multiArray1[1][multiIndex1[1]]:"请选择系部"}}</view>
+      <view wx:if="{{flagDisabled}}">{{department}}</view>
+      <view wx:else>{{showDepart?multiArray1[0][multiIndex1[0]]+" "+multiArray1[1][multiIndex1[1]]:"请选择系部"}}</view>
+      
     </picker>
   </view>
   <view class="cu-form-group cu-item">
     <view class="title">挂号价格</view>
-    <input name="price" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入价格" value="{{price}}"></input>
+    <input name="price" type="text" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入价格" value="{{price}}"></input>
   </view>
   <view class="cu-form-group cu-item">
     <view class="title">工作时间</view>
 
      <view class="action">
-    <button class="cu-btn bg-gray " disabled="{{flagDisabled}}" bindtap="showModal" data-target="ChooseModal">查看</button>
+    <button class="cu-btn bg-gray "  bindtap="showModal" data-target="ChooseModal">查看</button>
   </view>
     <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog" catchtap>
@@ -94,12 +96,14 @@
   <view class="cu-form-group cu-item">
     <view class="title">项目</view>
     <picker name="department" mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" disabled="{{flagDisabled}}"   value="{{multiIndex2}}" range="{{multiArray2}}">    
-      <view>{{showDepart?multiArray2[0][multiIndex2[0]]+" "+multiArray2[1][multiIndex2[1]]:"请选择项目"}}</view>
+      <view wx:if="{{flagDisabled}}">{{department}}</view>
+      <view wx:else>{{showDepart?multiArray2[0][multiIndex2[0]]+" "+multiArray2[1][multiIndex2[1]]:"请选择项目"}}</view>
+      
     </picker>
   </view>
   <view class="cu-form-group cu-item">
     <view class="title">检查价格</view>
-    <input name="price" type="number" selectable="true" disabled="{{flagDisabled}}" placeholder="请输入价格" value="{{price}}"></input>
+    <input name="price" type='text' selectable="true" disabled="{{flagDisabled}}" placeholder="请输入价格" value="{{price}}"></input>
   </view>
   <view class="cu-form-group cu-item">
     <view class="title">工作时间</view>

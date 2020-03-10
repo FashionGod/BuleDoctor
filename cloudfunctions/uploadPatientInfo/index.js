@@ -18,7 +18,7 @@ exports.main = async (event, context) => {
           await db.collection('PatientInfo').add({
             data:{
               _id: event.openid,
-              sickNumber: b.total + 1,
+              sickNumber: '' + (b.total + 1),
               patientName: event.patientName,
               sex: event.sex,
               age: event.age,

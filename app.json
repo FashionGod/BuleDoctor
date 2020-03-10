@@ -18,7 +18,8 @@
     "pages/home/pickSelf/itemDetail/itemDetail",
     "pages/home/pickSelf/itemDetail/itemAppointTime/itemAppointTime",
     "pages/home/pickSelf/itemDetail/itemAppointTime/confirmItem/confirmItem",
-    "pages/home/pickSelf/itemDetail/itemAppointTime/confirmItem/itemPayment/itemPayment"
+    "pages/home/pickSelf/itemDetail/itemAppointTime/confirmItem/itemPayment/itemPayment",
+    "pages/me/orderRecordDetail/orderRecordDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

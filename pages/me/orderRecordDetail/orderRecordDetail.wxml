@@ -1,0 +1,11 @@
+<!--pages/me/ordereRecordDetail/orderRecordDetail.wxml-->
+<view wx:if="{{admin==0}}">
+
+</view>
+<view wx:elif="{{admin==1}}">
+
+</view>
+<view wx:elif="{{admin==2}}">
+
+</view>
+

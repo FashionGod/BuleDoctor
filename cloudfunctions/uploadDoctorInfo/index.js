@@ -18,14 +18,15 @@ exports.main = async (event, context) => {
     await db.collection('DoctorInfo').add({
       data: {
         _id: event.openid,
-        doctorNumber: b.total + 1,
+        doctorNumber: '' + (b.total + 1),
         doctorName: event.doctorName,
         department: event.department,
         price: event.price,
-        worktime: event.worktime,
+        workTime: event.worktime,
         personalExperience: event.experience,
         jobTitle: '',
         major: '',
+        moreRegisterList:[68,68,68,68,68,68,68]
       }
     })
   }
@@ -36,7 +37,7 @@ exports.main = async (event, context) => {
         doctorName: event.doctorName,
         department: event.department,
         price: event.price,
-        worktime: event.worktime,
+        workTime: event.worktime,
         personalExperience: event.experience,
         jobTitle: '',
         major: '',
