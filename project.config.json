@@ -56,20 +56,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-<<<<<<< HEAD
-					"name": "pages/home/pickSelf/pickSelf",
-					"pathName": "pages/home/pickSelf/pickSelf",
-=======
-					"name": "pages/me/orderRecordDetail/orderRecordDetail",
-					"pathName": "pages/me/orderRecordDetail/orderRecordDetail",
-					"query": "admin=2",
->>>>>>> originF
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }
