@@ -2,7 +2,7 @@
 
 <view wx:if="{{admin==0}}">
   <block wx:for="{{cardList}}" wx:key>
-    <view class="card" wx:for-index="key" data-id="{{key}}" bindtap="gotoDetail">
+    <view class="card" wx:for-index="index" data-index="{{index}}" bindtap="gotoDetail">
       <view>
         <text class="title">挂号部门：</text>{{department}}</view>
       <view>
@@ -16,7 +16,7 @@
 </view>
 <view wx:elif="{{admin==1}}">
   <block wx:for="{{cardList}}" wx:key>
-    <view class="card" wx:for-index="key" data-id="{{key}}" bindtap="gotoDetail">
+    <view class="card" wx:for-index="index" data-index="{{index}}" bindtap="gotoDetail">
       <view>
         <text class="title">挂号部门：</text>{{department}}</view>
       <view>

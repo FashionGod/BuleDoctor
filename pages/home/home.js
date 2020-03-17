@@ -32,7 +32,8 @@ Page({
         console.log(res.result.data)
         if (res.result.data == null) {
           wx.showModal({
-            content: '请前往我的页面填写个人信息'
+            content: '请前往我的页面填写个人信息',
+            showCancel: false
           })
         } else {
           this.setData({
@@ -54,7 +55,8 @@ Page({
         console.log(res.result.data)
         if (res.result.data == null) {
           wx.showModal({
-            content: '请前往我的页面填写个人信息'
+            content: '请前往我的页面填写个人信息',
+            showCancel: false,
           })
         } else {
           this.setData({
@@ -76,11 +78,12 @@ Page({
         console.log(res.result.data)
         if (res.result.data == null) {
           wx.showModal({
-            content: '请前往我的页面填写个人信息'
+            content: '请前往我的页面填写个人信息',
+            showCancel: false,
           })
         } else {
           this.setData({
-            userNumber: res.result.data.uploaderNumber
+            userNumber: res.result.data.doctorNumber
           })
         }
         app.globalData.userNumber = this.data.userNumber

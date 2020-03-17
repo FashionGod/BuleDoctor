@@ -11,6 +11,7 @@ Page({
     department:'',
     time:'',
     parientDescribe:'',
+    index:''
     // searchLoading: false, //"上拉加载"的变量，默认false，隐藏
     // searchLoadingComplete: false, //“没有数据”的变量，默认false，隐藏
   },
@@ -24,14 +25,17 @@ Page({
     })
     console.log(app.globalData.userNumber==null)
     if (app.globalData.userNumber==null){
-
+      
     }
     else{
+      console.log(app.globalData.userNumber)
+      console.log(options.flag)
       wx.cloud.callFunction({
         name: 'getRecord',
         data:{
           userNumber:app.globalData.userNumber,
-          admin:app.globalData.admin
+          admin:app.globalData.admin,
+          flag:options.flag
         }
       }).then(res=>{
         console.log(res.result)
@@ -43,9 +47,10 @@ Page({
     console.log(this)
   },
   gotoDetail:function(e){
-    console.log(e.currentTarget.dataset.index)
+    console.log(e)
+    console.log(this.data.cardList[e.currentTarget.dataset.index].orderNumber)
     wx.navigateTo({
-      url: '../orderRecordDetail/orderRecordDetail?index=' + e.currentTarget.dataset.index,
+      url: '../orderRecordDetail/orderRecordDetail?department=' + this.data.cardList[e.currentTarget.dataset.index].department + '&time=' + this.data.cardList[e.currentTarget.dataset.index].date + ' ' + this.data.cardList[e.currentTarget.dataset.index].payTime + '&index=' + this.data.cardList[e.currentTarget.dataset.index].orderNumber,
       success: function (res) { console.log(res)},
       fail: function(res) {console.log(res)},
       complete: function (res) { console.log(res)},

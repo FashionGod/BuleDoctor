@@ -25,11 +25,11 @@ Page({
       })
     } else if (e.currentTarget.dataset.index == 2) {
       wx.navigateTo({
-        url: 'orderRecord/orderRecord',
+        url: 'orderRecord/orderRecord?flag=1',
       })
     } else if (e.currentTarget.dataset.index == 3) {
       wx.navigateTo({
-        url: 'physicalExaminationRecord/physicalExaminationRecord',
+        url: 'physicalExaminationRecord/physicalExaminationRecord?flag=2',
       })
     } 
 

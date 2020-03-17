@@ -1,2 +1,12 @@
-<!--pages/me/physicalExaminationRecord/physicalExaminationRecord.wxml-->
-<text>pages/me/physicalExaminationRecord/physicalExaminationRecord.wxml</text>
+<view wx:for="{{cardList}}" wx:key>
+    <view class="card" wx:for-index="index" data-index="{{index}}" bindtap="gotoDetail">
+      <view>
+        <text class="title">体检项目：</text>{{department}}</view>
+      <view>
+        <text class="title">医生姓名：</text>{{item.docName}}</view>
+      <view>
+        <text class="title">检查时间：</text>{{item.date}} {{item.payTime}}</view>
+      <view>
+        <text class="title">费用：</text>{{item.orderNumber}}</view>
+    </view>
+</view>

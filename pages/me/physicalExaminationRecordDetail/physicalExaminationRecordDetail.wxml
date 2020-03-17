@@ -1,0 +1,15 @@
+<view class="upload" bindtap="preView">
+    <view style="text-align: center;" wx:if="{{tempFilePaths}}">
+      <image mode="aspectFit" class="picture1" src="{{tempFilePaths}}"></image>
+    </view>
+    <view wx:else class="text">
+      医生还未给出结果，请耐心等待^_^！
+    </view>
+  </view>
+  <view class="text">
+  体检项目：{{department}}
+  </view>
+  <view class="text">
+  体检时间：{{time}}
+  </view>
+  <view class="button" bindtap="uploadToCloud">点击上传</view>

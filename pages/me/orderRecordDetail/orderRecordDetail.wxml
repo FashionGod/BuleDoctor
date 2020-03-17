@@ -1,11 +1,40 @@
 <!--pages/me/ordereRecordDetail/orderRecordDetail.wxml-->
 <view wx:if="{{admin==0}}">
-
+<view class="text">
+  挂号部门：{{department}}
+  </view>
+  <view class="text">
+  挂号时间：{{time}}
+  </view>
+    <view class="diagnosisPatient" >您的诊断为：{{diagnosis}}</view>
 </view>
 <view wx:elif="{{admin==1}}">
-
+ <view class="text">
+  挂号部门：{{department}}
+  </view>
+  <view class="text">
+  挂号时间：{{time}}
+  </view>
+  <form bindsubmit="formSubmit">
+    <textarea class="diagnosis" maxlength="-1" placeholder="请输入诊断信息......" name="diagnosis" value="{{diagnosis}}" ></textarea>
+  <button class="button" form-type="submit">点击上传</button>
+  </form>
 </view>
 <view wx:elif="{{admin==2}}">
-
+  <view class="upload" bindtap="upload">
+    <view style="text-align: center;" wx:if="{{tempFilePaths}}">
+      <image mode="aspectFit" class="picture1" src="{{tempFilePaths}}"></image>
+    </view>
+    <view wx:else>
+      <image class="picture2" src="../../../images/add.png"></image>
+    </view>
+  </view>
+  <view class="text">
+  体检项目：{{department}}
+  </view>
+  <view class="text">
+  体检时间：{{time}}
+  </view>
+  <view class="button" bindtap="uploadToCloud">点击上传</view>
 </view>
 

@@ -531,8 +531,8 @@ Page({
           })
         } else {
           let temp = this.data.checkbox
-          for (let i in res.result.data.worktime){
-            temp[res.result.data.worktime[i]].checked = true
+          for (let i in res.result.data.workTime){
+            temp[res.result.data.workTime[i]].checked = true
           }
           this.setData({
             doctorName: res.result.data.doctorName,
@@ -563,11 +563,11 @@ Page({
           })
         } else{
           let temp = this.data.checkbox
-          for (let i in res.result.data.worktime) {
-            temp[res.result.data.worktime[i]].checked = true
+          for (let i in res.result.data.workTime) {
+            temp[res.result.data.workTime[i]].checked = true
           }
           this.setData({
-            uploaderName: res.result.data.uploaderName,
+            uploaderName: res.result.data.doctorName,
             price:res.result.data.price,
             department: this.data.list[res.result.data.department[0]].name + ' ' + this.data.list[res.result.data.department[0]].items[res.result.data.department[1]],
             checkbox:temp,
@@ -704,7 +704,8 @@ Page({
             })
             that.setData({
               flagDisabled: true,
-              experience: that.data.experience
+              department: that.data.list[data.detail.value.department[0]].name + ' ' + that.data.list[data.detail.value.department[0]].items[data.detail.value.department[1]]
+              
             })
           }
 
@@ -762,7 +763,8 @@ Page({
               })
             })
             that.setData({
-              flagDisabled: true
+              flagDisabled: true,
+              department: that.data.list[data.detail.value.department[0]].name + ' ' + that.data.list[data.detail.value.department[0]].items[data.detail.value.department[1]]
             })
           }
 

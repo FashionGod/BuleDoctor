@@ -1,1 +1,26 @@
-/* pages/me/physicalExaminationRecord/physicalExaminationRecord.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.card{
+  margin: 35rpx 50rpx;
+  background: linear-gradient(to top left,rgba(0, 162, 255, 0.534),#6daffa71);
+  padding: 15rpx;
+  box-shadow: 5px 5px 5px #4d9bf4c7;
+  border-radius: 20rpx;
+}
+
+
+
+.card view{
+  font-size: 13pt;
+}
+
+.title{
+  font-weight: 550;
+  font-size: 13pt;
+  line-height: 30px;
+}

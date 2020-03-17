@@ -18,28 +18,29 @@ exports.main = async (event, context) => {
     await db.collection('UploaderInfo').add({
       data: {
         _id: event.openid,
-        uploaderNumber: ''+(b.total + 1),
-        uploaderName: event.uploaderName,
+        doctorNumber: ''+(b.total + 1),
+        doctorName: event.uploaderName,
         department: event.department,
-        price: event.price,
+        price: ''+event.price,
         workTime: event.worktime,
         personalExperience: event.experience,
         jobTitle:'',
         major:'',
+        moreRegisterList: [68, 68, 68, 68, 68, 68, 68]
       }
     })
   }
   else {
     return db.collection('UploaderInfo').doc(event.openid).update({
       data: {
-        uploaderName: event.uploaderName,
-        uploaderName: event.uploaderName,
+        doctorNumber: event.uploaderName,
+        doctorName: event.uploaderName,
         department: event.department,
-        price: event.price,
+        price: ''+event.price,
         workTime: event.worktime,
         personalExperience: event.experience,
         jobTitle: '',
-        major: '',
+        major: ''
       }
     })
   }

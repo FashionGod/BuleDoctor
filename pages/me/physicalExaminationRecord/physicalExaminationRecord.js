@@ -1,18 +1,43 @@
 // pages/me/physicalExaminationRecord/physicalExaminationRecord.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    cardList:[],
   },
-
+  gotoDetail: function (e) {
+    console.log(e)
+    console.log(this.data.cardList[e.currentTarget.dataset.index].orderNumber)
+    wx.navigateTo({
+      url: '../physicalExaminationRecordDetail/physicalExaminationRecordDetail?department=' + this.data.cardList[e.currentTarget.dataset.index].department + '&time=' + this.data.cardList[e.currentTarget.dataset.index].date + ' ' + this.data.cardList[e.currentTarget.dataset.index].payTime + '&index=' + this.data.cardList[e.currentTarget.dataset.index].orderNumber,
+      success: function (res) { console.log(res) },
+      fail: function (res) { console.log(res) },
+      complete: function (res) { console.log(res) },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: 'getRecord',
+      data: {
+        userNumber: app.globalData.userNumber,
+        admin: app.globalData.admin,
+        flag: options.flag
+      }
+    }).then(res => {
+      console.log(res.result)
+      this.setData({
+        cardList: res.result.list
+      })
+    })
+    console.log(options.flag)
+    console.log(app.globalData.userNumber)
+    console.log(app.globalData)
   },
 
   /**
