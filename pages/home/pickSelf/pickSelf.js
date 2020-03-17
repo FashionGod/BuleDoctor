@@ -7,7 +7,23 @@ Page({
     TabCur: 0,
     MainCur: 0,
     VerticalNavTop: 0,
-    list: [],
+    list: [
+      { top: 0, bottom: 1398, },
+      { top: 1398, bottom: 1998, },
+      { top: 1998, bottom: 3480, },
+      { top: 3480, bottom: 4164, },
+      { top: 4164, bottom: 4554, },
+      { top: 4554, bottom: 4776, },
+      { top: 4776, bottom: 4956, },
+      { top: 4956, bottom: 5388, },
+      { top: 5388, bottom: 5862, },
+      { top: 5862, bottom: 6798, },
+      { top: 6798, bottom: 7062, },
+      { top: 7062, bottom: 7620, },
+      { top: 7620, bottom: 8010, },
+      { top: 8010, bottom: 8106, },
+      { top: 8106, bottom: 9168, },
+    ],
     load: true,
     flag0:true
   },
@@ -26,10 +42,12 @@ Page({
       
     }
     console.log(this.data.list)
+    let depList = JSON.stringify(this.data.list);
     wx.navigateTo({
       url: 'itemDetail/itemDetail?departmentName=' + departmentName +
         '&departmentName1=' + departmentName1 +
-        '&departmentName2=' + departmentName2 
+        '&departmentName2=' + departmentName2 +
+        '&depList=' + depList
       ,
     })
   },
@@ -69,6 +87,24 @@ Page({
     //   list[i].name = String.fromCharCode(65 + i);
     //   list[i].id = i;
     // }
+    listHeight = [
+      { "top": 0, "bottom": 222 },
+      { "top": 222, "bottom": 612 },
+      { "top": 612, "bottom": 918 },
+      { "top": 918, "bottom": 1140 },
+      { "top": 1140, "bottom": 1362 },
+      { "top": 1362, "bottom": 1584 },
+      { "top": 1584, "bottom": 1806 },
+      { "top": 1806, "bottom": 2028 },
+      { "top": 2028, "bottom": 2250 },
+      { "top": 2250, "bottom": 2472 },
+      { "top": 2472, "bottom": 3282 },
+    ]
+    for(i in list) {
+      list[i].top = listHeight[i].top;
+      list[i].bottom = listHeight[i].bottom;
+    }
+    console.log(list);
     this.setData({
       list: list,
       listCur: list[0]
@@ -85,29 +121,32 @@ Page({
     })
   },
   VerticalMain(e) {
-    let that = this;
+    // let that = this;
     let list = this.data.list;
-    let tabHeight = 0;
-    if (this.data.load) {
-      for (let i = 0; i < list.length; i++) {
-        let view = wx.createSelectorQuery().select("#main-" + list[i].id);
-        view.fields({
-          size: true
-        }, data => {
-          list[i].top = tabHeight;
-          tabHeight = tabHeight + data.height;
-          list[i].bottom = tabHeight;
-        }).exec();
-      }
-      that.setData({
-        load: false,
-        list: list
-      })
-    }
+    // let tabHeight = 0;
+    // console.log(tabHeight)
+    // if (this.data.load) {
+    //   for (let i = 0; i < list.length; i++) {
+    //     let view = wx.createSelectorQuery().select("#main-" + list[i].id);
+    //     view.fields({
+    //       size: true
+    //     }, data => {
+    //       list[i].top = tabHeight;
+    //       tabHeight = tabHeight + data.height;
+    //       list[i].bottom = tabHeight;
+    //     }).exec();
+    //   }
+    //   console.log(list)
+    //   that.setData({
+    //     load: false,
+    //     list: list
+    //   })
+    // }
+    // console.log(tabHeight)
     let scrollTop = e.detail.scrollTop + 20;
     for (let i = 0; i < list.length; i++) {
       if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
-        that.setData({
+        this.setData({
           VerticalNavTop: (list[i].id - 1) * 50,
           TabCur: list[i].id
         })

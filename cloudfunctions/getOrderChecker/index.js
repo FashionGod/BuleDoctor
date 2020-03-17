@@ -2,19 +2,19 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init()
-const db = cloud.database();
+
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext();
+  const db = cloud.database();
   var mess = {};
   try {
-    let doctorsdata = await db.collection("UploaderInfo").aggregate()
+    let orderdata = await db.collection("OrderChecker").aggregate()
       .match({
-        department: event.department, 
-      }) 
+        doctorNumber: event.doctorNumber, 
+      })
       .end()
-    mess.doctorsTemp = doctorsdata;
     mess.code = 0;
+    mess.orderdata = orderdata;
   } catch(err) {
     console.log(err);
     mess.err = err;

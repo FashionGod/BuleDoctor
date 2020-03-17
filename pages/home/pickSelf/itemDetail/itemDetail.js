@@ -136,136 +136,7 @@ Page({
     doctorsWorkFlag: [false, false, false, false, false, false, false],
     nodoctors: false,
     order:[//订单
-      {
-      orderNumber: "0", 
-      date: "2020-3-4",
-      registerlistId : "0",
-      docName: "平诊",
-      doctorNumber: "0",
-      patientName: "flz",
-      patientNumber: "3", 
-      payTime: "14:30",
-    },
-      {
-        orderNumber: "1",
-        date: "2020-3-4",
-        registerlistId: "0",
-        docName: "医生2",
-        doctorNumber: "1",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "2",
-        date: "2020-3-4",
-        registerlistId: "0",
-        docName: "医生3",
-        doctorNumber: "2",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "16:30",
-      },
-      {
-        orderNumber: "3",
-        date: "2020-3-4",
-        registerlistId: "0",
-        docName: "医生4",
-        doctorNumber: "3",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "4",
-        date: "2020-3-4",
-        registerlistId: "0",
-        docName: "平诊",
-        doctorNumber: "0",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "11:30",
-      },
-      {
-        orderNumber: "5",
-        date: "2020-3-4",
-        registerlistId: "0",
-        docName: "平诊",
-        doctorNumber: "0",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "6",
-        date: "2020-3-5",
-        registerlistId: "0",
-        docName: "平诊",
-        doctorNumber: "0",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "7",
-        date: "2020-3-5",
-        registerlistId: "0",
-        docName: "平诊",
-        doctorNumber: "0",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "8",
-        date: "2020-3-5",
-        registerlistId: "0",
-        docName: "医生3",
-        doctorNumber: "2",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "9",
-        date: "2020-3-6",
-        registerlistId: "0",
-        docName: "平诊",
-        doctorNumber: "0",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "10",
-        date: "2020-3-6",
-        registerlistId: "0",
-        docName: "医生3",
-        doctorNumber: "2",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "11",
-        date: "2020-3-10",
-        registerlistId: "0",
-        docName: "医生3",
-        doctorNumber: "2",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      },
-      {
-        orderNumber: "12",
-        date: "2020-3-10",
-        registerlistId: "0",
-        docName: "医生3",
-        doctorNumber: "2",
-        patientName: "flz",
-        patientNumber: "3",
-        payTime: "15:30",
-      }
+      
     ]
   },
   /**
@@ -274,6 +145,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(options);
+    var depList = JSON.parse(options.depList);
+    var optionsDepartmentName = options.departmentName;
     let department = [];
     department.push(parseInt(options.departmentName1));
     department.push(parseInt(options.departmentName2));
@@ -281,7 +154,7 @@ Page({
       wx.cloud.callFunction({
         name:'getDoctorsChecker',
         data: {
-          department: [0,0],
+          department: department,
         },
         success(res) {
           console.log(department)
@@ -305,13 +178,48 @@ Page({
           wx.hideLoading();
         },
       })
+    }).then( res => {
+      var that = this;
+      console.log(res);
+        setTimeout(function a(){},1000);
+        wx.cloud.callFunction({
+          name: 'getOrderCheckerAll',
+          success(res) {
+            if (res.result.data == -1) {
+              wx.showModal({
+                title: '系统错误！',
+                content: '系统出现错误，请稍后再试！',
+              })
+              wx.hideLoading();
+            } else {
+              wx.setStorageSync("resOrder", res.result.orderdata.data);
+            }
+          },
+          fail(err) {
+            wx.showModal({
+              title: '网络错误！',
+              content: '网络出现错误，请稍后再试！',
+            })
+            wx.hideLoading();
+            rejected(err);
+          },
+        })
+      return res;
     }).then((res) => {
+      console.log();
       console.log(res)
       //判断是不是此科室的医生
       let doctorsTemp = this.data.doctorsTemp;
       let doctorsDepartment = [];
       let doctors = [[], [], [], [], [], [], []];
-      doctorsDepartment = res.list;
+      // console.log(res)
+      if(res.list.length !=0 ) {
+        let arrTemp = res.list[0].department;
+        if (depList[arrTemp[0]].items[arrTemp[1]] == optionsDepartmentName) {
+          doctorsDepartment = res.list;
+        }
+      }
+      this.data.order = wx.getStorageSync("resOrder");
       // for (i in doctorsTemp) {
       //   if (doctorsTemp[i].department == options.departmentName && doctorsTemp[i].workTime.length != 0) {
       //     doctorsDepartment.push(doctorsTemp[i])
@@ -497,6 +405,7 @@ Page({
             count2 += 1;
           }
         }
+        console.log(temp2)
         //处理订单
         // 选中天的订单 既是this.data.num
         let ordercount = 0;
@@ -504,6 +413,7 @@ Page({
         // orderDate.setHours(15);
         // orderDate.setMinutes(54);
         let order = this.data.order;
+        console.log(count2)
         if (count2 != 0) {
           for (i in temp2[this.data.num]) {
             ordercount = 0;
@@ -519,6 +429,9 @@ Page({
               }
             }
             console.log(ordercount)
+            console.log(temp2)
+            console.log(this.data.num)
+            console.log(i)
             if (temp2[this.data.num][i].moreRegisterList[this.data.num] >= 1) {
               temp2[this.data.num][i].moreRegisterList[this.data.num] = count2 - ordercount;
             }
@@ -562,6 +475,7 @@ Page({
                     console.log(temp2[i][j].moreRegisterList[i])
                   }
                 }
+                console.log(ordercount)
                 if (temp2[i][j].moreRegisterList[i] != 0) {
                   temp2[i][j].moreRegisterList[i] -= ordercount;
                 }
@@ -570,10 +484,8 @@ Page({
             }
           }
         }
-
-
       }
-      console.log(weekDate);
+      console.log(temp2)
       this.setData({
         date: curDate,
         departmentName: options.departmentName,
@@ -585,6 +497,8 @@ Page({
         doctorsWorkFlag: doctorsWorkFlag,
         doctorsDepartment: doctorsDepartment,
         nodoctors: this.data.nodoctors,
+        departmentName: optionsDepartmentName,
+        department: department,
       })
       wx.setNavigationBarTitle({// 设置上标题栏
         title: options.departmentName,
@@ -679,12 +593,18 @@ Page({
       itemDetailCur = true;
     } 
     console.log(itemDetailCur)
+    console.log(this.data.department)
+    let department = JSON.stringify(this.data.department);
     wx.navigateTo({
       url: 'itemAppointTime/itemAppointTime?num='+ this.data.num + 
            '&weekDate=' + weekDate +
            '&doctor=' + toItemAppointTimedoctor +
            '&itemDetailCur=' + itemDetailCur +
-           '&registerFlag=' + this.data.registerFlag,
+           '&registerFlag=' + this.data.registerFlag +
+           '&apartmentName=' + this.data.departmentName +
+           '&department=' + department
+           ,
+
     })
   },
   /**

@@ -56,7 +56,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/home/pickSelf/pickSelf",
+					"pathName": "pages/home/pickSelf/pickSelf",
+					"scene": null
+				}
+			]
 		}
 	}
 }

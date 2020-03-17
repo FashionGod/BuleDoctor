@@ -11,7 +11,7 @@
                 <!-- 医生文字 -->
                 <view class="docText">{{doctor.doctorName}}</view>     
                 <!-- 部门文字 -->
-                <view class="departmentText">{{doctor.department}}</view>
+                <view class="departmentText">{{apartmentName}}</view>
              </view>
         
     </view><!-- 图片和文字结束 -->
@@ -91,7 +91,7 @@
       <!-- 列表右边 -->
       <view class="listRight">
         <!-- 钱 -->
-        <view class=' style {{item.price == "已无号"?"noMoreRegister":"money"}} ' >{{item.price}} {{item.id}}</view>
+        <view class=' style {{item.price == "已无号"?"noMoreRegister":"money"}} ' >￥{{item.price}} {{item.id}}</view>
         <!-- 箭头 -->
         <view class="arrow" wx:if='{{item.price != "已无号"}}'></view>
       </view><!-- 列表右边结束 -->

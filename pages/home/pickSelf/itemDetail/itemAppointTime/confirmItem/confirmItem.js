@@ -14,6 +14,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    var apartmentName = options.apartmentName;
     let doctor = JSON.parse(options.doctor);
     let seeTime2 = JSON.parse(options.seeTime2);
     var a = [];
@@ -34,6 +35,7 @@ Page({
       })
     })
     promise.then( (res) => {
+      console.log(res);
         console.log(res.result.data);
       this.setData({
         doctor: doctor,
@@ -42,6 +44,7 @@ Page({
         weekDate: options.weekDate,
         patientInfo: res.result.data,
         registerlistId: options.registerlistId,
+        apartmentName: apartmentName,
       })
 
     })
@@ -77,7 +80,8 @@ Page({
       '&seeTime2=' + seeTime2 +
       '&weekDate=' + weekDate +
       '&patientInfo=' + patientInfo +
-      '&registerlistId=' + this.data.registerlistId
+      '&registerlistId=' + this.data.registerlistId + 
+      '&apartmentName=' + this.data.apartmentName
       ,
     })
   },

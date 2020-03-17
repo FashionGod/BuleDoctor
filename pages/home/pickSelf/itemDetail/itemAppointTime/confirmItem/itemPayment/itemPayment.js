@@ -13,6 +13,14 @@ Page({
     wxTimerList: {},
   },
   uploadOrderInfo() {
+    wx.showLoading({
+      title: '订单生成中',
+      mask: true,
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+    
     wx.cloud.callFunction({
       name: 'uploadOrderChecker',
       data: {
@@ -24,8 +32,36 @@ Page({
         "patientName": this.data.patientInfo.name,
         "patientNumber": this.data.patientInfo.sickNumber,
         "payTime": this.data.seeTime2.time,
+        "department": this.data.doctor.department,
+      },
+      success(res) {
+        wx.showModal({
+          title: '支付成功',
+          content: '订单已经生成！',
+          success(res) {
+            if(res.confirm) {
+              wx.switchTab({
+                url: '/pages/home/home',
+              })
+            } else if(res.cancel) {
+              wx.switchTab({
+                url: '/pages/home/home',
+              })
+            }
+          }
+        })
+        wx.hideLoading();
+        
+      },
+      fail(err) {
+        wx.showModal({
+          title: '支付失败！',
+          content: '请检查网络环境！',
+        })
+        wx.hideLoading();
       }
     })  
+    wx.hideLoading();
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,6 +78,7 @@ Page({
       weekDate: options.weekDate,
       patientInfo: patientInfo,
       registerlistId: options.registerlistId,
+      apartmentName: options.apartmentName,
     })
     wxTimer.calibration()
     wxTimer.start(this);
