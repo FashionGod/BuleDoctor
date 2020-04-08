@@ -1,12 +1,17 @@
+<block wx:if="{{showList}}">
 <view wx:for="{{cardList}}" wx:key>
     <view class="card" wx:for-index="index" data-index="{{index}}" bindtap="gotoDetail">
       <view>
-        <text class="title">体检项目：</text>{{department}}</view>
+        <text class="title">体检项目：</text>{{departmentList[index]}}</view>
       <view>
         <text class="title">医生姓名：</text>{{item.docName}}</view>
       <view>
         <text class="title">检查时间：</text>{{item.date}} {{item.payTime}}</view>
       <view>
-        <text class="title">费用：</text>{{item.orderNumber}}</view>
+        <text class="title">费用：</text>{{item.price}}</view>
     </view>
 </view>
+</block>
+<block wx:else>
+<view class='nulltext'>您没有任何记录哦~</view>
+</block>

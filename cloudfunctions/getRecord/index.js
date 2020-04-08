@@ -20,12 +20,12 @@ exports.main = async (event, context) => {
   }
   else{
     if(event.flag==1){
-      return db.collection('OrderChecker').aggregate().match({
+      return db.collection('OrderRegister').aggregate().match({
         patientNumber: event.userNumber
       }).end()
     }
     else if(event.flag==2){
-      return db.collection('OrderRegister').aggregate().match({
+      return db.collection('OrderChecker').aggregate().match({
         patientNumber: event.userNumber
       }).end()
     }

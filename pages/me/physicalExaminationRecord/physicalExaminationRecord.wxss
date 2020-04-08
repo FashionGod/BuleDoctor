@@ -24,3 +24,8 @@ page{
   font-size: 13pt;
   line-height: 30px;
 }
+
+.nulltext{
+  font-size: 18pt;
+  margin: 100rpx auto;
+}

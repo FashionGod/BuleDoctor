@@ -1,4 +1,5 @@
 // pages/me/physicalExaminationRecordDetail/physicalExaminationRecordDetail.js
+const app = getApp()
 Page({
 
   /**
@@ -23,10 +24,21 @@ Page({
   onLoad: function (options) {
     var that = this
     this.setData({
-      department: options.department,
       time: options.time,
-      index: options.index
+      index: options.index,
+      department:options.department
     })
+    // 转化department数组对应的字符串
+    if (app.globalData.admin == 1) {
+      this.setData({
+        department: this.data.list1[options.department[0]].title + ' ' + this.data.list1[options.department[0].items[options.department[1]]]
+      })
+    }
+    else if (app.globalData.admin == 2) {
+      this.setData({
+        department: this.data.list2[options.department[0]].title + ' ' + this.data.list2[options.department[0].items[options.department[1]]]
+      })
+    }
     wx.cloud.callFunction({
       name: 'getCheckImage',
       data: {

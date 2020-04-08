@@ -26,6 +26,7 @@ page{
   line-height: 30px;
 }
 
-/* #4d9bf4
-
-#4d9bf486 */
+.nulltext{
+  font-size: 18pt;
+  margin: 100rpx auto;
+}
