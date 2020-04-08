@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    
     admin:null,
     department:'',
     time:'',
@@ -22,6 +23,17 @@ Page({
       }
     }).then(res=>{
       console.log(res)
+      if (res.result != null) {
+        wx.showToast({
+          title: '上传成功',
+        })
+      }
+      else {
+        wx.showToast({
+          title: '上传失败',
+          icon: 'none'
+        })
+      }
     })
   },
   upload(){
@@ -37,17 +49,7 @@ Page({
           tempFilePaths: tempFilePaths[0]
         })
         console.log(res)
-        if(res.result!=null){
-          wx.showToast({
-            title: '上传成功',
-          })
-        }
-        else {
-          wx.showToast({
-            title: '上传失败',
-            icon:'none'
-          })
-        }
+        
       }
     })
     

@@ -1,4 +1,5 @@
 <!--pages/me/ordereRecordDetail/orderRecordDetail.wxml-->
+
 <view wx:if="{{admin==0}}">
 <view class="text">
   挂号部门：{{department}}
@@ -37,4 +38,5 @@
   </view>
   <view class="button" bindtap="uploadToCloud">点击上传</view>
 </view>
+
 
