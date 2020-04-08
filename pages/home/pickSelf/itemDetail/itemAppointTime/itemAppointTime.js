@@ -290,7 +290,7 @@ Page({
                 break;
               }
             }
-            this.data.num = i;
+            this.data.num = options.num;
           }
           for (i in this.data.registerListTemp) {
             this.data.registerList[i] = this.data.registerListTemp[i];//当天四点后展示下一天的 
@@ -340,6 +340,7 @@ Page({
                   if (this.data.registerListTemp[order[j].registerlistId].time >= dateTemp.toTimeString()) {
                     console.log(order[j].registerlistId)
                     if (this.data.registerList[i].id == order[j].registerlistId) {
+                      console.log("111")
                       this.data.registerList[i].price = "已无号";
                       break;
                     }

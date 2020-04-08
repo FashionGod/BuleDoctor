@@ -1,8 +1,4 @@
 // pages/home/quickRegister/departmentDetail/appointmentTime/confirmRegister/payment/payment.js
-var timer = require('../../../../../../../plugins/wxTimer.js');
-var wxTimer = new timer({
-  beginTime: "00:00:05",
-})
 const app = getApp();
 Page({
 
@@ -10,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wxTimerList: {},
   },
   uploadOrderInfo() {
     wx.showLoading({
@@ -33,6 +28,7 @@ Page({
         "patientNumber": this.data.patientInfo.sickNumber,
         "payTime": this.data.seeTime2.time,
         "department": this.data.doctor.department,
+        "price": this.data.doctor.price,
       },
       success(res) {
         wx.showModal({
@@ -80,12 +76,6 @@ Page({
       registerlistId: options.registerlistId,
       apartmentName: options.apartmentName,
     })
-    wxTimer.calibration()
-    wxTimer.start(this);
-    console.log(wxTimer)
-    wxTimer.calibration()
-    app.globalData.wxTimer = wxTimer;
-    console.log(app.globalData.wxTimer)
   },
   
   /**
@@ -99,7 +89,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wxTimer.calibration()
+    
   },
 
   /**

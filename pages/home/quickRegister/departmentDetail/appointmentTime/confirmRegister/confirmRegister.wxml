@@ -10,7 +10,7 @@
   <!-- 就诊科室 -->
   <view class="clinicDepartmentBox clearfix">
     <view class="clinicDepartment">就诊科室</view>
-    <view class="clinicDepartmentMain">{{doctor.department}}</view>
+    <view class="clinicDepartmentMain">{{apartmentName}}</view>
   </view>
   <!-- 就诊时段 -->
   <view class="seeTimeBox clearfix">
@@ -31,7 +31,7 @@
       <image class="patientInformationImg" src="../../../../../../images/patient.png"></image>    
     <!-- </view> -->
     <view class="patientInformationTxtBox">
-      <view class="patientName">{{patientInfo.name}}</view>
+      <view class="patientName">{{patientInfo.patientName}}</view>
       <!-- <view class="patientMedicalCardNumber">HC08223727</view> -->
     </view>
   </view>

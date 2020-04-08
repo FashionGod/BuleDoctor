@@ -11,7 +11,7 @@
                 <!-- 医生文字 -->
                 <view class="docText">{{doctor.doctorName}}</view>     
                 <!-- 部门文字 -->
-                <view class="departmentText">{{doctor.department}}</view>
+                <view class="departmentText">{{apartmentName}}</view>
              </view>
         
     </view><!-- 图片和文字结束 -->

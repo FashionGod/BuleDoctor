@@ -412,7 +412,8 @@ Page({
         let orderDate = new Date();
         // orderDate.setHours(15);
         // orderDate.setMinutes(54);
-        let order = this.data.order;
+        let order = wx.getStorageSync("resOrder");
+        console.log(order);
         console.log(count2)
         if (count2 != 0) {
           for (i in temp2[this.data.num]) {

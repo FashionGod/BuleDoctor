@@ -8,12 +8,12 @@ exports.main = async (event, context) => {
   const db = cloud.database();
   var mess = [];
   try {
-    let ordercheckerdata = await db.collection("OrderChecker").count()
+    let ordercheckerdata = await db.collection("OrderRegister").count()
     var number = 0;
     console.log(ordercheckerdata)
     if (ordercheckerdata.total == 0) {
-     number = await db.collection("OrderChecker").add({
-        data:{
+      number = await db.collection("OrderRegister").add({
+        data: {
           orderNumber: "0",
           date: event.date,
           registerlistId: event.registerlistId,
@@ -27,7 +27,7 @@ exports.main = async (event, context) => {
         }
       })
     } else {
-      number = await db.collection("OrderChecker").add({
+      number = await db.collection("OrderRegister").add({
         data: {
           orderNumber: "" + ordercheckerdata.total,
           date: event.date,
@@ -44,7 +44,7 @@ exports.main = async (event, context) => {
     }
     mess.code = 1;
     console.log(ordercheckerdata)
-  } catch(e) {
+  } catch (e) {
     console.log(e);
     mess.err = e;
     mess.code = -1;

@@ -2,7 +2,7 @@
 <view class="background" bindsubmit="submitInfo">
   <!-- 锁号倒计时 -->
   <view class="countDownBox">
-    <view class="countDownMain">请在{{wxTimer}}内完成支付</view>
+    <view class="countDownMain">请在尽快完成支付</view>
   </view>
   <!-- 支付金额 -->
   <view class="paymentAmountBox">
