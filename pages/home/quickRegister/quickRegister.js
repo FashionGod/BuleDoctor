@@ -143,8 +143,7 @@ Page({
             temp[i].bottom = temp2[i].bottom;
           }
           that.setData({
-            list: temp,
-            listCur: list[0]
+            list: temp
           })
         }
       },

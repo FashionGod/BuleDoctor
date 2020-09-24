@@ -12,4 +12,3 @@
   <view class="text">
   体检时间：{{time}}
   </view>
-  <view class="button" bindtap="uploadToCloud">点击上传</view>

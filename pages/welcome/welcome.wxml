@@ -12,7 +12,7 @@
       </view>
       <view class="bd">
         <image class="smalltitle" src="../../images/smalltitle.png"></image>
-        <button class="confirm-btn" bindtap="toNext">
+        <button class="confirm-btn" hover-class="confirm-btn-active" bindtap="toNext">
           进入蓝医先生
         </button>
         <view class="passwordInput" wx:if="{{doctorFlag||uploaderFlag}}">

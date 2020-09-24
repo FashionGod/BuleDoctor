@@ -77,53 +77,11 @@ Page({
       apartmentName: options.apartmentName,
     })
   },
-  
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+	/**
+	** onHide()在小程序生命周期中具有监听小程序隐藏的功能，当切换页面和切换底部菜单栏时将会关闭定时器。
+	*/
+	onHide:function(){ 
+		let e = this;
+		clearInterval(e.data.timer);
+	},
 })

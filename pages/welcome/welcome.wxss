@@ -307,7 +307,7 @@ page {
   margin: 40% 20%;
 }
 
-.confirm-btn:active {
+.confirm-btn-active {
   opacity: 0.8;
 }
 
